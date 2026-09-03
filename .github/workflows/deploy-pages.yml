@@ -1,0 +1,51 @@
+# Publica a pasta site/ no GitHub Pages a cada push no branch principal.
+# Nada precisa ser instalado ou configurado a mao: o proprio fluxo liga o
+# Pages na primeira execucao (enablement: true).
+
+name: Publicar site no GitHub Pages
+
+on:
+  push:
+    branches: [master, main]
+  workflow_dispatch: # permite disparar manualmente pela aba Actions
+
+# Permissoes minimas necessarias para publicar
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Uma publicacao por vez, sem cancelar a que ja esta rodando
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  empacotar:
+    name: Empacotar o site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar o GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Enviar a pasta site/ como artefato
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  publicar:
+    name: Publicar
+    needs: empacotar
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Colocar no ar
+        id: deploy
+        uses: actions/deploy-pages@v4
