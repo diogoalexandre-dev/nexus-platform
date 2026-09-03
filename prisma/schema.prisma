@@ -1,0 +1,158 @@
+// Modelo de dados inicial do NEXUS.
+// Reflete a estrutura descrita em docs/ARCHITECTURE.md e docs/ROADMAP.md.
+// Nada aqui foi migrado para um banco real ainda — é o ponto de partida.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum TipoUsuario {
+  CONTRATANTE
+  PRESTADOR
+  ADMIN
+}
+
+enum PortePrestador {
+  AUTONOMO
+  PEQUENA_EMPRESA
+  MEDIA_EMPRESA
+  GRANDE_EMPRESA
+}
+
+enum StatusProjeto {
+  ABERTO
+  EM_NEGOCIACAO
+  EM_ANDAMENTO
+  CONCLUIDO
+  CANCELADO
+}
+
+enum StatusProposta {
+  ENVIADA
+  ACEITA
+  RECUSADA
+  RETIRADA
+}
+
+model Usuario {
+  id            String       @id @default(cuid())
+  tipo          TipoUsuario
+  nome          String
+  email         String       @unique
+  cidade        String       @default("São Paulo")
+  criadoEm      DateTime     @default(now())
+
+  contratante   Contratante?
+  prestador     Prestador?
+}
+
+model Contratante {
+  id            String    @id @default(cuid())
+  usuario       Usuario   @relation(fields: [usuarioId], references: [id])
+  usuarioId     String    @unique
+  empresa       String?
+  porte         PortePrestador?
+
+  projetos      Projeto[]
+}
+
+model Prestador {
+  id            String    @id @default(cuid())
+  usuario       Usuario   @relation(fields: [usuarioId], references: [id])
+  usuarioId     String    @unique
+  empresa       String?
+  porte         PortePrestador?
+  bio           String?
+
+  categorias    CategoriaPrestador[]
+  propostas     Proposta[]
+  avaliacoes    Avaliacao[]
+}
+
+model Categoria {
+  id            String       @id @default(cuid())
+  nome          String       @unique
+  descricao     String?
+
+  projetos      Projeto[]
+  prestadores   CategoriaPrestador[]
+}
+
+model CategoriaPrestador {
+  prestador     Prestador @relation(fields: [prestadorId], references: [id])
+  prestadorId   String
+  categoria     Categoria @relation(fields: [categoriaId], references: [id])
+  categoriaId   String
+
+  @@id([prestadorId, categoriaId])
+}
+
+model Projeto {
+  id            String         @id @default(cuid())
+  titulo        String
+  briefing      String
+  status        StatusProjeto  @default(ABERTO)
+  criadoEm      DateTime       @default(now())
+
+  contratante   Contratante    @relation(fields: [contratanteId], references: [id])
+  contratanteId String
+  categoria     Categoria      @relation(fields: [categoriaId], references: [id])
+  categoriaId   String
+
+  propostas     Proposta[]
+  mensagens     Mensagem[]
+  avaliacao     Avaliacao?
+  pagamento     Pagamento?
+}
+
+model Proposta {
+  id            String          @id @default(cuid())
+  valor         Decimal
+  prazoEmDias   Int
+  descricao     String
+  status        StatusProposta  @default(ENVIADA)
+  criadoEm      DateTime        @default(now())
+
+  projeto       Projeto         @relation(fields: [projetoId], references: [id])
+  projetoId     String
+  prestador     Prestador       @relation(fields: [prestadorId], references: [id])
+  prestadorId   String
+}
+
+model Mensagem {
+  id            String    @id @default(cuid())
+  autorId       String
+  conteudo      String
+  enviadoEm     DateTime  @default(now())
+
+  projeto       Projeto   @relation(fields: [projetoId], references: [id])
+  projetoId     String
+}
+
+model Avaliacao {
+  id            String     @id @default(cuid())
+  nota          Int
+  comentario    String?
+  criadoEm      DateTime   @default(now())
+
+  projeto       Projeto    @relation(fields: [projetoId], references: [id])
+  projetoId     String     @unique
+  prestador     Prestador  @relation(fields: [prestadorId], references: [id])
+  prestadorId   String
+}
+
+model Pagamento {
+  id            String    @id @default(cuid())
+  valor         Decimal
+  status        String    @default("PENDENTE")
+  provedor      String?
+  criadoEm      DateTime  @default(now())
+
+  projeto       Projeto   @relation(fields: [projetoId], references: [id])
+  projetoId     String    @unique
+}
