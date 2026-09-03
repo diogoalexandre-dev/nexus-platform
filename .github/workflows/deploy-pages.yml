@@ -1,6 +1,9 @@
 # Publica a pasta site/ no GitHub Pages a cada push no branch principal.
-# Nada precisa ser instalado ou configurado a mao: o proprio fluxo liga o
-# Pages na primeira execucao (enablement: true).
+#
+# Pre-requisito, feito UMA UNICA VEZ no repositorio:
+#   Settings > Pages > Build and deployment > Source: "GitHub Actions"
+# Sem isso, o passo "Preparar o GitHub Pages" falha, porque o token do
+# workflow nao tem permissao para ligar o Pages sozinho.
 
 name: Publicar site no GitHub Pages
 
@@ -30,8 +33,6 @@ jobs:
 
       - name: Preparar o GitHub Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Enviar a pasta site/ como artefato
         uses: actions/upload-pages-artifact@v3

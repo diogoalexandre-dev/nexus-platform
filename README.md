@@ -61,8 +61,7 @@ Cores oficiais: `#000000`, `#21201e`, `#61d429`, `#f9f8f6`.
 ## Publicação (GitHub Pages)
 
 O arquivo `.github/workflows/deploy-pages.yml` publica a pasta `site/` automaticamente
-a cada `git push` no branch principal. Não é preciso configurar nada no painel do
-GitHub — o próprio fluxo liga o Pages na primeira execução.
+a cada `git push` no branch principal.
 
 Passo a passo da primeira vez:
 
@@ -75,8 +74,11 @@ Passo a passo da primeira vez:
    git push -u origin master
    ```
 
-3. Acompanhe a publicação na aba **Actions** do repositório.
-4. O endereço final aparece em **Settings → Pages**, no formato
+3. Em **Settings → Pages → Build and deployment**, mude *Source* para
+   **GitHub Actions**. Isso é feito **uma única vez** — o token do workflow não
+   tem permissão para ligar o Pages sozinho.
+4. Na aba **Actions**, abra a última execução e clique em *Re-run all jobs*.
+5. O endereço final aparece em **Settings → Pages**, no formato
    `https://SEU-USUARIO.github.io/nexus-platform/`.
 
 Das próximas vezes, basta `git push`: o site é republicado sozinho.
