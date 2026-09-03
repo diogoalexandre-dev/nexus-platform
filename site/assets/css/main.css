@@ -1,0 +1,38 @@
+/* ==========================================================================
+   NEXUS — Folha de estilo principal
+   --------------------------------------------------------------------------
+   Este e o UNICO arquivo CSS ligado no HTML. Ele importa todos os outros,
+   na ordem correta de cascata:
+
+     1. base/       reset, variaveis (tokens), tipografia e utilitarios
+     2. layout/     estruturas fixas: container, header e rodape
+     3. components/ pecas reutilizaveis: botoes, cards, formularios...
+     4. pages/      estilos exclusivos de cada tipo de pagina
+
+   Para mudar cores, fontes ou espacamentos do site inteiro, edite apenas
+   base/_tokens.css.
+   ========================================================================== */
+
+/* 1. Base */
+@import url("base/_tokens.css");
+@import url("base/_reset.css");
+@import url("base/_typography.css");
+@import url("base/_utilities.css");
+
+/* 2. Layout */
+@import url("layout/_container.css");
+@import url("layout/_header.css");
+@import url("layout/_footer.css");
+
+/* 3. Componentes */
+@import url("components/_button.css");
+@import url("components/_card.css");
+@import url("components/_form.css");
+@import url("components/_accordion.css");
+@import url("components/_tabs.css");
+@import url("components/_feedback.css");
+
+/* 4. Paginas */
+@import url("pages/_home.css");
+@import url("pages/_auth.css");
+@import url("pages/_interna.css");

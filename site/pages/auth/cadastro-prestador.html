@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar perfil de prestador — NEXUS</title>
+  <meta name="description" content="Cadastro de empreendedores e prestadores de serviços digitais na NEXUS. A partir de 16 anos, com seção específica para adolescentes de 16 e 17 anos.">
+  <meta name="theme-color" content="#000000">
+  <meta name="robots" content="noindex">
+
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="auth">
+
+    <!-- ================================================================
+         COLUNA INSTITUCIONAL
+         ================================================================ -->
+    <aside class="auth__aside has-noise">
+      <span class="glow" aria-hidden="true"></span>
+
+      <a class="brand" href="../../index.html" aria-label="NEXUS — página inicial">
+        <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect x="1.2" y="1.2" width="29.6" height="29.6" rx="9" stroke="#61d429" stroke-width="2.2"/>
+          <path d="M10 22.5V9.5l12 13v-13" stroke="#61d429" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand__text">NEXUS</span>
+      </a>
+
+      <div class="auth__pitch">
+        <span class="eyebrow">Perfil de prestador</span>
+        <h2>Seu trabalho, com endereço no mercado digital.</h2>
+        <p>
+          Preencha uma vez e passe a receber briefings compatíveis com o que você faz e com a
+          região onde está. Cadastro gratuito, sem mensalidade.
+        </p>
+
+        <ul class="check-list auth__hide-sm">
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            A NEXUS só cobra comissão em projeto concluído e pago
+          </li>
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            De 16 a 29 anos, as trilhas da Academy vêm juntas
+          </li>
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Você escolhe o que fica visível no perfil público
+          </li>
+        </ul>
+      </div>
+
+      <div class="auth__aside-foot auth__hide-sm">
+        <div class="alert alert--green">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/>
+          </svg>
+          <p>
+            <strong>Seus dados</strong>
+            CPF, telefone e e-mail nunca aparecem no perfil público. Servem só para
+            identificação, contrato e pagamento.
+          </p>
+        </div>
+
+        <p class="mono">Protótipo demonstrativo · nada é enviado a servidor</p>
+      </div>
+    </aside>
+
+    <!-- ================================================================
+         FORMULÁRIO
+         ================================================================ -->
+    <main class="auth__main" id="conteudo">
+
+      <div class="auth__topbar">
+        <a class="btn-link" href="cadastro.html">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 12H5M11 18l-6-6 6-6"/>
+          </svg>
+          Trocar tipo de conta
+        </a>
+        <p class="auth__switch">Já tem conta? <a href="login.html?perfil=prestador">Entrar</a></p>
+      </div>
+
+      <div class="auth__box auth__box--wide">
+
+        <div class="auth__head">
+          <div class="row" style="justify-content: space-between;">
+            <h1>Criar perfil de prestador</h1>
+            <span class="badge" data-trilha-badge hidden></span>
+          </div>
+          <p>
+            Campos marcados com <span class="text-green">*</span> são obrigatórios para ativar o
+            perfil. Leva cerca de cinco minutos.
+          </p>
+        </div>
+
+        <form class="form" data-form
+              data-success-target="#cadastro-ok"
+              data-success-title="Cadastro simulado com sucesso"
+              data-success-text="Confira abaixo os dados que seriam enviados à API.">
+
+          <!-- Indicador de etapas -->
+          <div class="stepper">
+            <ol class="stepper__list">
+              <li class="stepper__item" data-step-item="#etapa-idade">
+                <span class="num">01</span><span>Idade</span>
+              </li>
+              <li class="stepper__item" data-step-item="#etapa-pessoal">
+                <span class="num">02</span><span>Seus dados</span>
+              </li>
+              <li class="stepper__item" data-step-item="#etapa-responsavel">
+                <span class="num">03</span><span>Responsável</span>
+              </li>
+              <li class="stepper__item" data-step-item="#etapa-perfil">
+                <span class="num">04</span><span>Perfil</span>
+              </li>
+              <li class="stepper__item" data-step-item="#etapa-acesso">
+                <span class="num">05</span><span>Acesso</span>
+              </li>
+            </ol>
+            <div class="stepper__track">
+              <div class="stepper__fill" data-step-fill></div>
+            </div>
+          </div>
+
+          <!-- ==========================================================
+               ETAPA 1 — SEPARAÇÃO POR IDADE
+               ========================================================== -->
+          <section class="step-panel" id="etapa-idade" data-step-panel>
+            <fieldset class="fieldset">
+              <legend class="fieldset__legend">
+                <span class="num" aria-hidden="true">1</span>
+                Qual é a sua idade?
+              </legend>
+
+              <p class="field__hint" style="margin-top: calc(-1 * var(--sp-2));">
+                Esta é a única pergunta que muda o resto do cadastro. Quem tem 16 ou 17 anos
+                segue por uma seção própria, com o consentimento do responsável legal —
+                exigência da LGPD e do ECA. Quem tem 18 ou mais segue direto.
+              </p>
+
+              <div class="form-grid">
+                <div class="field">
+                  <label class="field__label" for="nascimento">
+                    Data de nascimento <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input class="input" id="nascimento" name="dataNascimento" type="date" required
+                         data-label="A data de nascimento" data-validate="nascimento"
+                         data-age-gate autocomplete="bday" max="2012-12-31">
+                  <p class="field__hint">Idade mínima da plataforma: 16 anos.</p>
+                  <p class="field__error"></p>
+                </div>
+
+                <div class="field">
+                  <span class="field__label">O que acontece agora</span>
+                  <div class="alert alert--info" data-age-result hidden>
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>
+                    </svg>
+                    <p>
+                      <strong data-age-title></strong>
+                      <span data-age-text></span>
+                    </p>
+                  </div>
+                  <p class="field__hint">Preencha a data ao lado para ver o seu caminho.</p>
+                </div>
+              </div>
+
+              <!-- Comparação rápida entre as duas seções -->
+              <div class="grid-2">
+                <div class="card card--flat" style="padding: var(--sp-5);">
+                  <span class="badge badge--green">16 a 17 anos · Trilha Jovem</span>
+                  <p class="card__text">
+                    Cadastro completo, com uma etapa a mais: nome, CPF, contato e consentimento
+                    do responsável legal. O perfil fica ativo normalmente, com as proteções do
+                    ECA aplicadas aos projetos.
+                  </p>
+                </div>
+                <div class="card card--flat" style="padding: var(--sp-5);">
+                  <span class="badge">18 anos ou mais · Trilha Padrão</span>
+                  <p class="card__text">
+                    Cadastro direto, sem etapa de responsável legal. Você assume sozinho os
+                    contratos firmados pela plataforma.
+                  </p>
+                </div>
+              </div>
+            </fieldset>
+          </section>
+
+          <!-- ==========================================================
+               ETAPA 2 — DADOS PESSOAIS E LOCALIZAÇÃO
+               ========================================================== -->
+          <section class="step-panel" id="etapa-pessoal" data-step-panel>
+            <fieldset class="fieldset">
+              <legend class="fieldset__legend">
+                <span class="num" aria-hidden="true">2</span>
+                Seus dados
+              </legend>
+
+              <div class="form-grid">
+                <div class="field span-2">
+                  <label class="field__label" for="nome">
+                    Nome completo <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input class="input" id="nome" name="nomeCompleto" type="text" required
+                         minlength="6" data-label="O nome completo" autocomplete="name"
+                         placeholder="Como está no seu documento">
+                  <p class="field__error"></p>
+                </div>
+
+                <div class="field span-2">
+                  <label class="field__label" for="nome-social">
+                    Nome social ou nome artístico <span class="opt">opcional</span>
+                  </label>
+                  <input class="input" id="nome-social" name="nomeSocial" type="text"
+                         placeholder="É este que aparece no seu perfil público">
+                  <p class="field__hint">Se preencher, será o nome exibido para os contratantes.</p>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="cpf">
+                    CPF <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input class="input" id="cpf" name="cpf" type="text" required
+                         inputmode="numeric" data-mask="cpf" data-validate="cpf"
+                         data-label="O CPF" placeholder="000.000.000-00">
+                  <p class="field__hint">Usado para contrato e pagamento. Nunca fica público.</p>
+                  <p class="field__error"></p>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="telefone">
+                    Telefone / WhatsApp <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input class="input" id="telefone" name="telefone" type="tel" required
+                         inputmode="tel" data-mask="telefone" data-validate="telefone"
+                         data-label="O telefone" autocomplete="tel" placeholder="(11) 90000-0000">
+                  <p class="field__error"></p>
+                </div>
+
+                <div class="field span-2">
+                  <label class="field__label" for="email">
+                    E-mail <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input class="input" id="email" name="email" type="email" required
+                         data-label="O e-mail" autocomplete="email"
+                         placeholder="voce@email.com.br">
+                  <p class="field__hint">É por aqui que você recebe os avisos de novos briefings.</p>
+                  <p class="field__error"></p>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="cep">
+                    CEP <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input class="input" id="cep" name="cep" type="text" required
+                         inputmode="numeric" data-mask="cep" data-validate="cep"
+                         data-label="O CEP" autocomplete="postal-code" placeholder="00000-000">
+                  <p class="field__error"></p>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="bairro">
+                    Bairro <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input class="input" id="bairro" name="bairro" type="text" required
+                         data-label="O bairro" placeholder="Ex.: Capão Redondo">
+                  <p class="field__error"></p>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="zona">
+                    Zona de São Paulo <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <select class="select" id="zona" name="zona" required data-label="A zona">
+                    <option value="">Selecione…</option>
+                    <option value="norte">Zona Norte</option>
+                    <option value="sul">Zona Sul</option>
+                    <option value="leste">Zona Leste</option>
+                    <option value="oeste">Zona Oeste</option>
+                    <option value="centro">Centro</option>
+                    <option value="grande-sp">Grande São Paulo</option>
+                  </select>
+                  <p class="field__hint">Usada para aproximar você de contratantes da região.</p>
+                  <p class="field__error"></p>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="cidade">Cidade / UF</label>
+                  <input class="input" id="cidade" name="cidade" type="text"
+                         value="São Paulo — SP" readonly>
+                  <p class="field__hint">Nesta fase, a NEXUS opera apenas na capital paulista.</p>
+                </div>
+              </div>
+            </fieldset>
+          </section>
+
+          <!-- ==========================================================
+               ETAPA 3 — SEÇÃO EXCLUSIVA: 16 E 17 ANOS
+               Aparece somente quando a data de nascimento indica 16 ou 17.
+               ========================================================== -->
+          <section class="step-panel" id="etapa-responsavel" data-step-panel data-step-guardian hidden>
+            <fieldset class="fieldset">
+              <legend class="fieldset__legend">
+                <span class="num" aria-hidden="true">3</span>
+                Responsável legal
+              </legend>
+
+              <div class="alert alert--green">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/>
+                </svg>
+                <p>
+                  <strong>Esta seção existe porque você tem 16 ou 17 anos</strong>
+                  Ela não impede seu cadastro — é o que o torna válido. A LGPD (art. 14) exige
+                  consentimento específico e destacado de quem responde legalmente por você, e o
+                  ECA garante que o trabalho não atrapalhe seus estudos e seu descanso.
+                  Se você já tem 18 anos, volte à primeira etapa e corrija a data: esta seção
+                  desaparece.
+                </p>
+              </div>
+
+              <div class="form-grid">
+                <div class="field span-2">
+                  <label class="field__label" for="resp-nome">
+                    Nome completo do responsável <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input class="input" id="resp-nome" name="responsavelNome" type="text" required
+                         minlength="6" data-label="O nome do responsável"
+                         placeholder="Mãe, pai ou responsável legal">
+                  <p class="field__error"></p>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="resp-cpf">
+                    CPF do responsável <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input class="input" id="resp-cpf" name="responsavelCpf" type="text" required
+                         inputmode="numeric" data-mask="cpf" data-validate="cpf"
+                         data-label="O CPF do responsável" placeholder="000.000.000-00">
+                  <p class="field__error"></p>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="resp-parentesco">
+                    Grau de parentesco <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <select class="select" id="resp-parentesco" name="responsavelParentesco" required
+                          data-label="O grau de parentesco">
+                    <option value="">Selecione…</option>
+                    <option value="mae">Mãe</option>
+                    <option value="pai">Pai</option>
+                    <option value="avo">Avó ou avô</option>
+                    <option value="irmao">Irmã ou irmão maior de idade</option>
+                    <option value="tutor">Tutor(a) ou guardião(ã) legal</option>
+                    <option value="outro">Outro responsável legal</option>
+                  </select>
+                  <p class="field__error"></p>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="resp-email">
+                    E-mail do responsável <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input class="input" id="resp-email" name="responsavelEmail" type="email" required
+                         data-label="O e-mail do responsável" placeholder="responsavel@email.com.br">
+                  <p class="field__hint">Enviamos a este endereço a confirmação do consentimento.</p>
+                  <p class="field__error"></p>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="resp-telefone">
+                    Telefone do responsável <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input class="input" id="resp-telefone" name="responsavelTelefone" type="tel" required
+                         inputmode="tel" data-mask="telefone" data-validate="telefone"
+                         data-label="O telefone do responsável" placeholder="(11) 90000-0000">
+                  <p class="field__error"></p>
+                </div>
+
+                <div class="field span-2">
+                  <label class="field__label" for="resp-recebimento">
+                    Quem recebe os pagamentos <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <select class="select" id="resp-recebimento" name="responsavelRecebimento" required
+                          data-label="A forma de recebimento">
+                    <option value="">Selecione…</option>
+                    <option value="adolescente">Conta ou chave PIX no nome do adolescente</option>
+                    <option value="responsavel">Conta ou chave PIX no nome do responsável legal</option>
+                  </select>
+                  <p class="field__hint">
+                    Pode ser alterado depois, no painel, com nova confirmação do responsável.
+                  </p>
+                  <p class="field__error"></p>
+                </div>
+              </div>
+
+              <!-- Consentimentos obrigatórios do responsável -->
+              <div class="stack">
+                <label class="check check--consent">
+                  <input type="checkbox" name="responsavelConsentimentoDados" required
+                         data-label="O consentimento do responsável">
+                  <span class="check__text">
+                    <strong>Consentimento para tratamento de dados do adolescente</strong>
+                    Declaro ser o responsável legal pelo(a) titular e autorizo, de forma
+                    específica e destacada, o tratamento dos dados pessoais dele(a) pela NEXUS
+                    para intermediação de serviços digitais, nos termos do art. 14, §1º, da Lei
+                    13.709/2018 (LGPD).
+                  </span>
+                </label>
+
+                <label class="check check--consent">
+                  <input type="checkbox" name="responsavelCienciaEca" required
+                         data-label="A declaração sobre o ECA">
+                  <span class="check__text">
+                    <strong>Ciência das condições de trabalho protegido</strong>
+                    Estou ciente de que as atividades contratadas não podem prejudicar a
+                    frequência escolar, o descanso e o lazer do adolescente, sendo vedado o
+                    trabalho noturno, perigoso ou insalubre, conforme o Estatuto da Criança e do
+                    Adolescente (Lei 8.069/1990).
+                  </span>
+                </label>
+
+                <label class="check check--consent">
+                  <input type="checkbox" name="responsavelAutorizaContratos" required
+                         data-label="A autorização de contratos">
+                  <span class="check__text">
+                    <strong>Autorização para contratos na plataforma</strong>
+                    Autorizo o(a) adolescente a aceitar propostas e firmar contratos de prestação
+                    de serviço digital pela NEXUS, com meu acompanhamento, e reconheço que serei
+                    notificado(a) por e-mail a cada contrato aceito.
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+          </section>
+
+          <!-- ==========================================================
+               ETAPA 4 — PERFIL PROFISSIONAL
+               ========================================================== -->
+          <section class="step-panel" id="etapa-perfil" data-step-panel>
+            <fieldset class="fieldset">
+              <legend class="fieldset__legend">
+                <span class="num" aria-hidden="true">4</span>
+                Perfil profissional
+              </legend>
+
+              <div class="field">
+                <span class="field__label">
+                  Como você atua <span class="req" aria-hidden="true">*</span>
+                </span>
+                <div class="choice-grid">
+                  <label class="choice">
+                    <input type="radio" name="tipoAtuacao" value="autonomo" required
+                           data-label="O tipo de atuação"
+                           data-toggle-target="#bloco-empresa" data-toggle-when="mei,empresa">
+                    <span class="choice__check" aria-hidden="true">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                    </span>
+                    <svg class="choice__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/>
+                    </svg>
+                    <span class="choice__title">Autônomo</span>
+                    <span class="choice__desc">Sem CNPJ, atuando como pessoa física</span>
+                  </label>
+
+                  <label class="choice">
+                    <input type="radio" name="tipoAtuacao" value="mei" required
+                           data-toggle-target="#bloco-empresa" data-toggle-when="mei,empresa">
+                    <span class="choice__check" aria-hidden="true">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                    </span>
+                    <svg class="choice__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/>
+                    </svg>
+                    <span class="choice__title">MEI</span>
+                    <span class="choice__desc">Microempreendedor individual, com CNPJ</span>
+                  </label>
+
+                  <label class="choice">
+                    <input type="radio" name="tipoAtuacao" value="empresa" required
+                           data-toggle-target="#bloco-empresa" data-toggle-when="mei,empresa">
+                    <span class="choice__check" aria-hidden="true">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                    </span>
+                    <svg class="choice__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5"/>
+                    </svg>
+                    <span class="choice__title">Empresa ou estúdio</span>
+                    <span class="choice__desc">ME, EPP ou sociedade já constituída</span>
+                  </label>
+                </div>
+                <p class="field__error"></p>
+              </div>
+
+              <!-- Aparece só para MEI e empresa -->
+              <div class="conditional" id="bloco-empresa">
+                <div class="form-grid">
+                  <div class="field">
+                    <label class="field__label" for="cnpj">
+                      CNPJ <span class="req" aria-hidden="true">*</span>
+                    </label>
+                    <input class="input" id="cnpj" name="cnpj" type="text" required
+                           inputmode="numeric" data-mask="cnpj" data-validate="cnpj"
+                           data-label="O CNPJ" placeholder="00.000.000/0001-00">
+                    <p class="field__error"></p>
+                  </div>
+
+                  <div class="field">
+                    <label class="field__label" for="razao-social">
+                      Razão social <span class="req" aria-hidden="true">*</span>
+                    </label>
+                    <input class="input" id="razao-social" name="razaoSocial" type="text" required
+                           data-label="A razão social" placeholder="Como consta no cartão CNPJ">
+                    <p class="field__error"></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="nome-negocio">
+                  Nome do seu negócio ou marca <span class="opt">opcional</span>
+                </label>
+                <input class="input" id="nome-negocio" name="nomeNegocio" type="text"
+                       placeholder="Ex.: Ateliê Lume">
+              </div>
+
+              <div class="field">
+                <span class="field__label">
+                  Categorias que você atende <span class="req" aria-hidden="true">*</span>
+                </span>
+                <p class="field__hint">Escolha pelo menos uma. Elas definem quais briefings chegam até você.</p>
+                <div class="row">
+                  <label class="choice-chip">
+                    <input type="checkbox" name="categorias" value="design" data-multi>
+                    Design gráfico
+                  </label>
+                  <label class="choice-chip">
+                    <input type="checkbox" name="categorias" value="video" data-multi>
+                    Edição de vídeo
+                  </label>
+                  <label class="choice-chip">
+                    <input type="checkbox" name="categorias" value="desenvolvimento" data-multi>
+                    Desenvolvimento web
+                  </label>
+                  <label class="choice-chip">
+                    <input type="checkbox" name="categorias" value="trafego" data-multi>
+                    Tráfego pago
+                  </label>
+                  <label class="choice-chip">
+                    <input type="checkbox" name="categorias" value="social" data-multi>
+                    Social media
+                  </label>
+                  <label class="choice-chip">
+                    <input type="checkbox" name="categorias" value="copy" data-multi>
+                    Copywriting
+                  </label>
+                  <label class="choice-chip">
+                    <input type="checkbox" name="categorias" value="motion" data-multi>
+                    Motion design
+                  </label>
+                  <label class="choice-chip">
+                    <input type="checkbox" name="categorias" value="foto" data-multi>
+                    Fotografia
+                  </label>
+                  <label class="choice-chip">
+                    <input type="checkbox" name="categorias" value="seo" data-multi>
+                    SEO
+                  </label>
+                  <label class="choice-chip">
+                    <input type="checkbox" name="categorias" value="automacao" data-multi>
+                    Automação e IA
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div class="field">
+                  <label class="field__label" for="experiencia">
+                    Tempo de experiência <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <select class="select" id="experiencia" name="experiencia" required
+                          data-label="O tempo de experiência">
+                    <option value="">Selecione…</option>
+                    <option value="iniciante">Estou começando agora</option>
+                    <option value="ate-1">Menos de 1 ano</option>
+                    <option value="1-3">De 1 a 3 anos</option>
+                    <option value="3-5">De 3 a 5 anos</option>
+                    <option value="5-mais">Mais de 5 anos</option>
+                  </select>
+                  <p class="field__hint">Começar do zero não tira ponto: existe filtro para isso.</p>
+                  <p class="field__error"></p>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="disponibilidade">
+                    Disponibilidade semanal <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <select class="select" id="disponibilidade" name="disponibilidade" required
+                          data-label="A disponibilidade">
+                    <option value="">Selecione…</option>
+                    <option value="ate-10">Até 10 horas por semana</option>
+                    <option value="10-20">De 10 a 20 horas</option>
+                    <option value="20-30">De 20 a 30 horas</option>
+                    <option value="30-mais">Mais de 30 horas</option>
+                  </select>
+                  <p class="field__hint">
+                    Para quem tem 16 ou 17 anos, a agenda é ajustada ao horário escolar.
+                  </p>
+                  <p class="field__error"></p>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="portfolio">
+                    Link do portfólio ou rede principal <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input class="input" id="portfolio" name="portfolio" type="text" required
+                         data-validate="url" data-label="O link do portfólio"
+                         placeholder="instagram.com/seuperfil">
+                  <p class="field__hint">Behance, Instagram, Drive, YouTube — o que mostrar seu trabalho.</p>
+                  <p class="field__error"></p>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="portfolio-2">
+                    Segundo link <span class="opt">opcional</span>
+                  </label>
+                  <input class="input" id="portfolio-2" name="portfolioSecundario" type="text"
+                         data-validate="url" data-label="O segundo link"
+                         placeholder="behance.net/seuperfil">
+                  <p class="field__error"></p>
+                </div>
+
+                <div class="field span-2">
+                  <label class="field__label" for="bio">
+                    Apresentação <span class="req" aria-hidden="true">*</span>
+                    <span class="char-count" data-count-for="bio">0 / 400</span>
+                  </label>
+                  <textarea class="textarea" id="bio" name="bio" required minlength="60"
+                            maxlength="400" data-label="A apresentação"
+                            placeholder="Conte em poucas linhas o que você faz, para quem já fez e o que te diferencia. Ex.: Faço identidade visual para pequenos negócios da Zona Sul há dois anos..."></textarea>
+                  <p class="field__hint">Mínimo de 60 caracteres. É o primeiro texto que o contratante lê.</p>
+                  <p class="field__error"></p>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="valor-hora">
+                    Valor-hora estimado <span class="opt">opcional</span>
+                  </label>
+                  <input class="input" id="valor-hora" name="valorHora" type="text"
+                         inputmode="numeric" placeholder="R$ 45,00">
+                  <p class="field__hint">Só uma referência — cada proposta é negociada.</p>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="modalidade">
+                    Modalidade de atendimento <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <select class="select" id="modalidade" name="modalidade" required
+                          data-label="A modalidade">
+                    <option value="">Selecione…</option>
+                    <option value="remoto">Somente remoto</option>
+                    <option value="hibrido">Remoto, com reuniões presenciais</option>
+                    <option value="presencial">Presencial na minha região</option>
+                  </select>
+                  <p class="field__error"></p>
+                </div>
+              </div>
+            </fieldset>
+          </section>
+
+          <!-- ==========================================================
+               ETAPA 5 — ACESSO E CONSENTIMENTOS
+               ========================================================== -->
+          <section class="step-panel" id="etapa-acesso" data-step-panel>
+            <fieldset class="fieldset">
+              <legend class="fieldset__legend">
+                <span class="num" aria-hidden="true">5</span>
+                Acesso e consentimentos
+              </legend>
+
+              <div class="form-grid">
+                <div class="field">
+                  <label class="field__label" for="senha">
+                    Criar senha <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <div class="field__control">
+                    <input class="input" id="senha" name="senha" type="password" required
+                           minlength="8" data-validate="senha" data-label="A senha"
+                           autocomplete="new-password" placeholder="Mínimo de 8 caracteres">
+                    <button class="field__action" type="button" data-toggle-password="senha"
+                            aria-label="Mostrar senha">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>
+                      </svg>
+                    </button>
+                  </div>
+                  <p class="field__error"></p>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="senha-confirma">
+                    Confirmar senha <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <div class="field__control">
+                    <input class="input" id="senha-confirma" name="senhaConfirmacao" type="password"
+                           required data-validate="confirmar-senha" data-match="senha"
+                           data-label="A confirmação da senha" autocomplete="new-password"
+                           placeholder="Repita a senha">
+                    <button class="field__action" type="button" data-toggle-password="senha-confirma"
+                            aria-label="Mostrar senha">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>
+                      </svg>
+                    </button>
+                  </div>
+                  <p class="field__error"></p>
+                </div>
+
+                <div class="field span-2">
+                  <div class="strength" data-strength-for="senha" data-level="0">
+                    <div class="strength__bars" aria-hidden="true">
+                      <span class="strength__bar"></span>
+                      <span class="strength__bar"></span>
+                      <span class="strength__bar"></span>
+                      <span class="strength__bar"></span>
+                    </div>
+                    <p class="strength__label">Força da senha</p>
+                    <ul class="strength__rules">
+                      <li data-rule="length">8 caracteres ou mais</li>
+                      <li data-rule="case">Maiúscula e minúscula</li>
+                      <li data-rule="number">Ao menos um número</li>
+                      <li data-rule="symbol">Um símbolo (recomendado)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="stack">
+                <label class="check check--consent">
+                  <input type="checkbox" name="aceiteTermos" required data-label="O aceite dos termos">
+                  <span class="check__text">
+                    <strong>Termos de Uso <span class="text-green">*</span></strong>
+                    Li e concordo com os
+                    <a href="../legal/termos.html" target="_blank" rel="noopener">Termos de Uso</a>
+                    da plataforma NEXUS, incluindo as regras de comissão sobre projetos concluídos.
+                  </span>
+                </label>
+
+                <label class="check check--consent">
+                  <input type="checkbox" name="aceitePrivacidade" required data-label="O aceite da política de privacidade">
+                  <span class="check__text">
+                    <strong>Tratamento de dados pessoais <span class="text-green">*</span></strong>
+                    Autorizo o tratamento dos meus dados pessoais para intermediação de serviços,
+                    conforme a
+                    <a href="../legal/privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>
+                    e a Lei 13.709/2018 (LGPD). Posso revogar este consentimento a qualquer momento.
+                  </span>
+                </label>
+
+                <label class="check check--consent">
+                  <input type="checkbox" name="declaracaoVeracidade" required data-label="A declaração de veracidade">
+                  <span class="check__text">
+                    <strong>Veracidade das informações <span class="text-green">*</span></strong>
+                    Declaro que os dados informados são verdadeiros e que os trabalhos
+                    apresentados no portfólio são de minha autoria ou que tenho autorização para
+                    exibi-los.
+                  </span>
+                </label>
+
+                <label class="check">
+                  <input type="checkbox" name="aceiteComunicacoes">
+                  <span>
+                    Quero receber por e-mail avisos de briefings compatíveis, turmas da NEXUS
+                    Academy e novidades da plataforma. <span class="text-dim">(opcional)</span>
+                  </span>
+                </label>
+              </div>
+
+              <div class="alert alert--info">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>
+                </svg>
+                <p>
+                  <strong>O que acontece depois do envio</strong>
+                  Em uma versão com back-end, o perfil entraria em análise de identidade e
+                  portfólio (até 2 dias úteis). Aqui, o formulário apenas mostra o pacote de
+                  dados que seria enviado à API.
+                </p>
+              </div>
+            </fieldset>
+          </section>
+
+          <!-- Navegação entre etapas -->
+          <div class="form-actions">
+            <button class="btn btn--ghost" type="button" data-step-prev hidden>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+              Voltar
+            </button>
+
+            <button class="btn btn--primary btn--lg" type="button" data-step-next>
+              Continuar
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+
+            <button class="btn btn--primary btn--lg" type="submit" data-step-submit hidden>
+              Criar meu perfil
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            </button>
+          </div>
+        </form>
+
+        <!-- Tela de sucesso (substitui o formulário após o envio simulado) -->
+        <div class="success-panel" id="cadastro-ok">
+          <span class="success-panel__icon" aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <h2>Perfil montado com sucesso</h2>
+          <p>
+            Este é um protótipo: nada foi enviado a servidor nenhum. Abaixo está exatamente o
+            objeto que seria entregue à API de cadastro — inclusive a seção do responsável legal,
+            quando ela se aplica.
+          </p>
+          <pre class="success-panel__data" data-success-dump></pre>
+          <div class="btn-group">
+            <a class="btn btn--primary" href="../../index.html">Voltar à página inicial</a>
+            <a class="btn btn--secondary" href="cadastro-prestador.html">Preencher de novo</a>
+          </div>
+        </div>
+
+        <p class="mono text-dim center">
+          Protótipo demonstrativo · sem banco de dados conectado
+        </p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/js/core.js" defer></script>
+  <script src="../../assets/js/ui.js" defer></script>
+  <script src="../../assets/js/forms.js" defer></script>
+  <script src="../../assets/js/auth.js" defer></script>
+</body>
+</html>

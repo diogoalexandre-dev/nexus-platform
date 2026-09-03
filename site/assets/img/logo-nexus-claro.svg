@@ -1,0 +1,8 @@
+<!-- Versao para fundos claros (#f9f8f6) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 40" width="190" height="40" role="img" aria-label="NEXUS">
+  <rect x="1.4" y="1.4" width="37.2" height="37.2" rx="11" fill="none" stroke="#3d8f18" stroke-width="2.4"/>
+  <path d="M12 28.5V11.5l16 17v-17" fill="none" stroke="#3d8f18" stroke-width="3"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="52" y="27.5" font-family="'Space Grotesk','Segoe UI',sans-serif" font-size="21"
+        font-weight="700" letter-spacing="4.2" fill="#21201e">NEXUS</text>
+</svg>

@@ -1,0 +1,78 @@
+/* ==========================================================================
+   NEXUS — Abas
+   Usadas em "Como funciona" (dois perfis) e no login (prestador/contratante).
+   ========================================================================== */
+
+.tabs {
+  display: grid;
+  gap: var(--sp-7);
+}
+
+.tabs__nav {
+  display: inline-flex;
+  gap: 4px;
+  padding: 5px;
+  background: var(--surface-2);
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-pill);
+  justify-self: start;
+  position: relative;
+}
+
+.tabs__nav--center { justify-self: center; }
+.tabs__nav--full { display: flex; width: 100%; }
+.tabs__nav--full .tab { flex: 1; justify-content: center; }
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 0.65rem 1.25rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-3);
+  border-radius: var(--r-pill);
+  white-space: nowrap;
+  transition:
+    color var(--t-base) var(--ease-out),
+    background-color var(--t-base) var(--ease-out);
+}
+
+.tab:hover { color: var(--text-1); }
+
+.tab[aria-selected="true"] {
+  background: var(--nx-green);
+  color: var(--nx-black);
+  box-shadow: var(--shadow-green);
+}
+
+.tab svg { flex-shrink: 0; }
+
+.tab-panel { display: none; }
+
+.tab-panel.is-active {
+  display: block;
+  animation: tab-in var(--t-slow) var(--ease-out);
+}
+
+@keyframes tab-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 560px) {
+  .tabs__nav { width: 100%; }
+  .tab { flex: 1; justify-content: center; padding: 0.65rem 0.75rem; font-size: var(--fs-xs); }
+}
+
+/* --- Filtro em linha (categorias) ----------------------------------------- */
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-7);
+}
+
+.filter-bar .chip { cursor: pointer; }

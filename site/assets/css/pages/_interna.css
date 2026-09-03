@@ -1,0 +1,470 @@
+/* ==========================================================================
+   NEXUS — Paginas internas
+   Contato, sobre, capacitacao, servicos e paginas legais.
+   ========================================================================== */
+
+/* --- Contato ------------------------------------------------------------------- */
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 0.72fr;
+  gap: var(--sp-8);
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .contact-layout { grid-template-columns: 1fr; }
+}
+
+.contact-form-wrap {
+  padding: var(--sp-7);
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-xl);
+  background: var(--surface-1);
+}
+
+.contact-side {
+  display: grid;
+  gap: var(--sp-5);
+  align-content: start;
+  position: sticky;
+  top: 110px;
+}
+
+@media (max-width: 960px) {
+  .contact-side { position: static; }
+}
+
+.info-block {
+  display: grid;
+  gap: var(--sp-4);
+  padding: var(--sp-5);
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-lg);
+  background: var(--surface-2);
+}
+
+.info-block h3 {
+  font-size: var(--fs-h4);
+}
+
+.hours-list {
+  list-style: none;
+  display: grid;
+  gap: var(--sp-2);
+  font-size: var(--fs-xs);
+}
+
+.hours-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding-block: var(--sp-2);
+  border-bottom: 1px dashed var(--line-1);
+  color: var(--text-2);
+}
+
+.hours-list li:last-child { border-bottom: none; }
+
+.hours-list strong { color: var(--text-1); font-weight: 600; }
+
+/* Mapa fictício desenhado em CSS */
+.map-frame {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--r-md);
+  border: 1px solid var(--line-1);
+  background:
+    radial-gradient(circle at 62% 45%, rgba(97, 212, 41, 0.22), transparent 42%),
+    var(--surface-3);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.map-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--line-1) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line-1) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.map-pin {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--nx-green);
+  color: var(--nx-black);
+  box-shadow: 0 0 0 8px rgba(97, 212, 41, 0.18), 0 0 0 18px rgba(97, 212, 41, 0.08);
+}
+
+.map-note {
+  position: absolute;
+  z-index: 1;
+  bottom: var(--sp-3);
+  left: var(--sp-3);
+  right: var(--sp-3);
+  padding: var(--sp-2) var(--sp-3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  color: var(--text-2);
+  background: rgba(10, 10, 9, 0.82);
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-xs);
+  backdrop-filter: blur(6px);
+}
+
+/* --- Sobre: valores e equipe ------------------------------------------------------- */
+
+.value-card {
+  display: grid;
+  gap: var(--sp-3);
+  padding: var(--sp-6);
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-lg);
+  background: var(--surface-2);
+  transition: border-color var(--t-base) var(--ease-out), transform var(--t-base) var(--ease-out);
+}
+
+.value-card:hover {
+  border-color: var(--nx-green-line);
+  transform: translateY(-4px);
+}
+
+.value-card__num {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: var(--tracking-caps);
+  color: var(--nx-green);
+}
+
+.value-card h3 { font-size: var(--fs-h4); }
+
+.value-card p {
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+  line-height: var(--lh-loose);
+}
+
+.team-card {
+  display: grid;
+  gap: var(--sp-3);
+  padding: var(--sp-5);
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-lg);
+  background: var(--surface-2);
+  text-align: center;
+  justify-items: center;
+}
+
+.team-card .avatar {
+  width: 72px;
+  height: 72px;
+  font-size: 1.4rem;
+  border-radius: var(--r-lg);
+}
+
+.team-card__name { font-family: var(--font-display); font-weight: 600; }
+.team-card__role { font-size: var(--fs-xs); color: var(--text-3); }
+
+/* --- Capacitacao: trilhas ------------------------------------------------------------ */
+
+.track {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--sp-5);
+  padding: var(--sp-6);
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-lg);
+  background: var(--surface-1);
+  transition: border-color var(--t-base) var(--ease-out);
+}
+
+.track:hover { border-color: var(--nx-green-line); }
+
+.track__badge {
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  border-radius: var(--r-md);
+  background: var(--nx-green-soft);
+  border: 1px solid var(--nx-green-line);
+  color: var(--nx-green);
+  flex-shrink: 0;
+}
+
+.track__body { display: grid; gap: var(--sp-3); }
+
+.track__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+@media (max-width: 620px) {
+  .track { grid-template-columns: 1fr; }
+}
+
+/* --- Como cobramos: planos ------------------------------------------------------------ */
+
+.plans {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: var(--sp-5);
+  align-items: stretch;
+}
+
+.plan {
+  position: relative;
+  display: grid;
+  gap: var(--sp-5);
+  align-content: start;
+  padding: var(--sp-6);
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-xl);
+  background: var(--surface-2);
+  transition: border-color var(--t-base) var(--ease-out), transform var(--t-base) var(--ease-out);
+}
+
+.plan:hover { transform: translateY(-4px); border-color: var(--line-2); }
+
+.plan--highlight {
+  border-color: var(--nx-green);
+  background: linear-gradient(170deg, rgba(97, 212, 41, 0.12), var(--surface-2) 55%);
+}
+
+.plan__flag {
+  position: absolute;
+  top: -11px;
+  left: var(--sp-6);
+  padding: 4px 12px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--nx-black);
+  background: var(--nx-green);
+  border-radius: var(--r-pill);
+}
+
+.plan__name {
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: 600;
+}
+
+.plan__price {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1.5rem + 1.8vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: var(--tracking-display);
+  line-height: 1;
+}
+
+.plan__price small {
+  display: block;
+  margin-top: var(--sp-2);
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--text-3);
+}
+
+/* --- Paginas legais ------------------------------------------------------------------- */
+
+.legal-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: var(--sp-9);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .legal-layout { grid-template-columns: 1fr; gap: var(--sp-6); }
+}
+
+.legal-toc {
+  position: sticky;
+  top: 110px;
+  display: grid;
+  gap: var(--sp-3);
+  padding: var(--sp-5);
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-lg);
+  background: var(--surface-2);
+}
+
+@media (max-width: 900px) {
+  .legal-toc { position: static; }
+}
+
+.legal-toc h2 {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.legal-toc ol {
+  list-style: none;
+  display: grid;
+  gap: var(--sp-2);
+  counter-reset: toc;
+}
+
+.legal-toc a {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: var(--sp-2);
+  font-size: var(--fs-xs);
+  color: var(--text-2);
+  line-height: 1.45;
+  transition: color var(--t-fast) var(--ease-out);
+}
+
+.legal-toc a::before {
+  counter-increment: toc;
+  content: counter(toc, decimal-leading-zero);
+  font-family: var(--font-mono);
+  color: var(--text-3);
+}
+
+.legal-toc a:hover { color: var(--nx-green); }
+.legal-toc a:hover::before { color: var(--nx-green); }
+
+.legal-content {
+  max-width: 74ch;
+}
+
+.legal-content section {
+  padding-top: var(--sp-8);
+  scroll-margin-top: 110px;
+}
+
+.legal-content section:first-child { padding-top: 0; }
+
+.legal-content h2 {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-3);
+  font-size: var(--fs-h3);
+  margin-bottom: var(--sp-4);
+}
+
+.legal-content h2 .n {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--nx-green);
+}
+
+.legal-content p,
+.legal-content li {
+  color: var(--text-2);
+  line-height: var(--lh-loose);
+  font-size: var(--fs-sm);
+}
+
+.legal-content p + p,
+.legal-content ul,
+.legal-content ol,
+.legal-content table { margin-top: var(--sp-4); }
+
+.legal-content ul,
+.legal-content ol {
+  padding-left: var(--sp-5);
+  display: grid;
+  gap: var(--sp-2);
+}
+
+.legal-content li::marker { color: var(--nx-green); }
+
+.legal-content h3 {
+  margin-top: var(--sp-6);
+  margin-bottom: var(--sp-3);
+  font-size: var(--fs-h4);
+}
+
+.legal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-5);
+  padding: var(--sp-4);
+  margin-bottom: var(--sp-7);
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.04em;
+  color: var(--text-3);
+}
+
+.legal-meta strong { color: var(--nx-green); font-weight: 500; }
+
+/* Tabela de dados */
+.data-table {
+  width: 100%;
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  font-size: var(--fs-xs);
+}
+
+.table-scroll { overflow-x: auto; }
+
+.data-table th,
+.data-table td {
+  padding: var(--sp-3) var(--sp-4);
+  text-align: left;
+  border-bottom: 1px solid var(--line-1);
+  vertical-align: top;
+}
+
+.data-table th {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-3);
+  background: var(--surface-3);
+  white-space: nowrap;
+}
+
+.data-table td { color: var(--text-2); line-height: 1.6; }
+
+.data-table tr:last-child td { border-bottom: none; }
+
+/* --- Grade de resultados (servicos) ----------------------------------------------------- */
+
+.result-count {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+  margin-bottom: var(--sp-5);
+}
+
+.result-count strong { color: var(--nx-green); }
+
+.empty-state {
+  display: none;
+  place-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-9);
+  text-align: center;
+  border: 1px dashed var(--line-2);
+  border-radius: var(--r-lg);
+  color: var(--text-3);
+}
+
+.empty-state.is-active { display: grid; }

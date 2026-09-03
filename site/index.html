@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS — Talento local, mercado digital | São Paulo</title>
+  <meta name="description" content="A NEXUS conecta empreendedores e prestadores de serviços digitais das periferias de São Paulo a empresas contratantes. Cadastro a partir dos 16 anos, com capacitação gratuita e conformidade com a LGPD e o ECA Digital.">
+  <meta name="theme-color" content="#000000">
+  <meta name="author" content="NEXUS Plataforma Digital">
+
+  <!-- Compartilhamento em redes sociais -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NEXUS">
+  <meta property="og:title" content="NEXUS — Talento local, mercado digital">
+  <meta property="og:description" content="Intermediação entre prestadores de serviços digitais de São Paulo e empresas contratantes. A partir de 16 anos.">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <!-- Tipografia: Space Grotesk (títulos) + Inter (texto) + JetBrains Mono (etiquetas) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ====================================================================
+       CABEÇALHO
+       ==================================================================== -->
+  <header class="header" data-header>
+    <div class="header__inner container container--wide">
+
+      <a class="brand" href="index.html" aria-label="NEXUS — página inicial">
+        <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect x="1.2" y="1.2" width="29.6" height="29.6" rx="9" stroke="#61d429" stroke-width="2.2"/>
+          <path d="M10 22.5V9.5l12 13v-13" stroke="#61d429" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand__text">NEXUS</span>
+        <span class="brand__tag">SP</span>
+      </a>
+
+      <nav class="nav" aria-label="Navegação principal">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="pages/como-funciona.html" data-nav-page="como-funciona.html">Como funciona</a></li>
+          <li><a class="nav__link" href="pages/servicos.html" data-nav-page="servicos.html">Serviços</a></li>
+          <li><a class="nav__link" href="pages/capacitacao.html" data-nav-page="capacitacao.html">Capacitação</a></li>
+          <li><a class="nav__link" href="pages/sobre.html" data-nav-page="sobre.html">Sobre</a></li>
+          <li><a class="nav__link" href="pages/contato.html" data-nav-page="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+
+        <!-- Menu de acesso: um caminho para cada perfil -->
+        <div class="dropdown" data-dropdown>
+          <button class="btn btn--ghost" type="button" data-dropdown-trigger
+                  aria-expanded="false" aria-haspopup="true" aria-controls="menu-entrar">
+            Entrar
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+
+          <div class="dropdown__panel" id="menu-entrar" data-dropdown-panel>
+            <p class="dropdown__label">Acessar minha conta</p>
+
+            <a class="dropdown__item" href="pages/auth/login.html?perfil=prestador">
+              <span class="dropdown__icon" aria-hidden="true">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="m3 7 9 5 9-5M12 22V12"/>
+                </svg>
+              </span>
+              <span>
+                <span class="dropdown__title">Empreendedor / Prestador</span>
+                <span class="dropdown__desc">Ofereço serviços digitais e quero receber propostas</span>
+              </span>
+              <svg class="dropdown__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </a>
+
+            <a class="dropdown__item" href="pages/auth/login.html?perfil=contratante">
+              <span class="dropdown__icon" aria-hidden="true">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/>
+                </svg>
+              </span>
+              <span>
+                <span class="dropdown__title">Contratante</span>
+                <span class="dropdown__desc">Preciso contratar um serviço digital</span>
+              </span>
+              <svg class="dropdown__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </a>
+
+            <p class="dropdown__foot">
+              Ainda não tem conta?
+              <a class="link" href="pages/auth/cadastro.html">Criar cadastro gratuito</a>
+            </p>
+          </div>
+        </div>
+
+        <a class="btn btn--primary" href="pages/auth/cadastro.html">Criar conta</a>
+
+        <button class="nav-toggle" type="button" data-nav-toggle
+                aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu">
+          <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="header__progress" data-progress aria-hidden="true"></div>
+  </header>
+
+  <!-- Menu mobile -->
+  <div class="mobile-nav" id="menu-mobile" data-mobile-nav>
+    <div class="container">
+      <ul class="mobile-nav__list">
+        <li><a class="mobile-nav__link" href="pages/como-funciona.html">Como funciona <span>01</span></a></li>
+        <li><a class="mobile-nav__link" href="pages/servicos.html">Serviços <span>02</span></a></li>
+        <li><a class="mobile-nav__link" href="pages/capacitacao.html">Capacitação <span>03</span></a></li>
+        <li><a class="mobile-nav__link" href="pages/sobre.html">Sobre <span>04</span></a></li>
+        <li><a class="mobile-nav__link" href="pages/contato.html">Contato <span>05</span></a></li>
+      </ul>
+
+      <div class="mobile-nav__actions">
+        <a class="btn btn--primary btn--block btn--lg" href="pages/auth/cadastro.html">Criar conta gratuita</a>
+        <a class="btn btn--secondary btn--block" href="pages/auth/login.html?perfil=prestador">Entrar como prestador</a>
+        <a class="btn btn--secondary btn--block" href="pages/auth/login.html?perfil=contratante">Entrar como contratante</a>
+      </div>
+
+      <p class="mobile-nav__note">Plataforma para maiores de 16 anos · São Paulo — SP</p>
+    </div>
+  </div>
+
+  <main id="conteudo">
+
+    <!-- ==================================================================
+         HERO
+         ================================================================== -->
+    <section class="hero has-noise has-grid">
+      <div class="hero__bg" aria-hidden="true">
+        <span class="glow glow--a"></span>
+        <span class="glow glow--b"></span>
+      </div>
+
+      <div class="container">
+        <div class="hero__grid">
+        <div class="hero__inner">
+
+          <span class="badge badge--green badge--live">
+            <span class="dot" aria-hidden="true"></span>
+            Rede ativa em São Paulo · a partir de 16 anos
+          </span>
+
+          <h1 class="hero__title">
+            Onde o talento da <em>quebrada</em> encontra o mercado digital.
+          </h1>
+
+          <p class="hero__subtitle">
+            A NEXUS conecta empreendedores e prestadores de serviços digitais das periferias de
+            São Paulo a empresas que precisam de design, vídeo, código e marketing — com
+            capacitação gratuita para quem tem entre 16 e 29 anos.
+          </p>
+
+          <form class="hero-search" data-hero-search data-target="pages/servicos.html" role="search">
+            <svg class="hero-search__icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+            </svg>
+            <label class="sr-only" for="busca-hero">O que você precisa contratar?</label>
+            <input id="busca-hero" type="search" name="busca"
+                   placeholder="O que você precisa? Ex.: identidade visual, edição de vídeo..."
+                   autocomplete="off">
+            <button class="btn btn--primary" type="submit">
+              <span>Buscar</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </button>
+          </form>
+
+          <p class="hero-suggest">
+            Buscas frequentes:
+            <a class="chip" href="pages/servicos.html?busca=design">Design</a>
+            <a class="chip" href="pages/servicos.html?busca=video">Edição de vídeo</a>
+            <a class="chip" href="pages/servicos.html?busca=social">Social media</a>
+            <a class="chip" href="pages/servicos.html?busca=site">Criação de site</a>
+          </p>
+
+          <div class="hero__meta">
+            <span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Cadastro gratuito
+            </span>
+            <span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+              Conformidade com LGPD e ECA Digital
+            </span>
+            <span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Talento 100% paulistano
+            </span>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             FIGURA DO JOVEM EMPREENDEDOR
+             Para usar uma foto de verdade: salve o PNG SEM FUNDO em
+             assets/img/jovem.png e troque o src da <img> abaixo.
+             Nada mais precisa mudar — o brilho, o anel e os cards
+             flutuantes se ajustam sozinhos.
+             ============================================================ -->
+        <div class="hero__figure" data-reveal data-reveal-delay="120">
+
+          <img src="assets/img/jovem-nexus.svg" width="420" height="470"
+               alt="Jovem empreendedor da periferia de São Paulo, sorrindo">
+
+          <div class="float-card float-card--a">
+            <span class="float-card__label">Novo briefing</span>
+            <span class="float-card__value">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/>
+              </svg>
+              Identidade visual
+            </span>
+          </div>
+
+          <div class="float-card float-card--green float-card--b">
+            <span class="float-card__label">Proposta aceita</span>
+            <span class="float-card__value">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5"/>
+              </svg>
+              R$ 2.400,00
+            </span>
+          </div>
+
+          <div class="float-card float-card--c">
+            <span class="float-card__label">Perfil verificado</span>
+            <span class="float-card__value">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
+              </svg>
+              16 anos · Zona Sul
+            </span>
+          </div>
+        </div>
+        </div>
+
+        <!-- Prévia da interface da plataforma -->
+        <div class="preview" data-reveal>
+          <div class="preview__window">
+            <div class="preview__bar">
+              <span class="preview__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="preview__url">app.nexus.com.br/briefings/2481</span>
+            </div>
+
+            <div class="preview__body">
+              <div class="preview__pane">
+                <p class="preview__pane-title">
+                  <span>Briefing #2481</span>
+                  <span class="badge badge--green">Aberto</span>
+                </p>
+
+                <div class="brief-field">
+                  <span class="brief-field__label">Serviço</span>
+                  <span class="brief-field__value">Identidade visual completa + kit de redes</span>
+                </div>
+                <div class="brief-field">
+                  <span class="brief-field__label">Contratante</span>
+                  <span class="brief-field__value">Rede Vértice · Pequena empresa</span>
+                </div>
+                <div class="brief-field">
+                  <span class="brief-field__label">Região preferencial</span>
+                  <span class="brief-field__value">Zona Sul — São Paulo/SP</span>
+                </div>
+                <div class="brief-field">
+                  <span class="brief-field__label">Prazo · Orçamento</span>
+                  <span class="brief-field__value brief-field__value--green">15 dias · R$ 2.400,00</span>
+                </div>
+              </div>
+
+              <div class="preview__pane">
+                <p class="preview__pane-title">
+                  <span>Prestadores compatíveis</span>
+                  <span class="mono">04</span>
+                </p>
+
+                <div class="match-row">
+                  <span class="avatar avatar--sm" aria-hidden="true">JS</span>
+                  <span>
+                    <span class="match-row__name">
+                      Joana S.
+                      <span class="verified" aria-label="Perfil verificado">
+                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                      </span>
+                    </span>
+                    <span class="match-row__tags">Design · Capão Redondo</span>
+                  </span>
+                  <span class="match-row__score">98%</span>
+                </div>
+
+                <div class="match-row">
+                  <span class="avatar avatar--sm" aria-hidden="true">MP</span>
+                  <span>
+                    <span class="match-row__name">Marcos P.</span>
+                    <span class="match-row__tags">Branding · Itaquera</span>
+                  </span>
+                  <span class="match-row__score">94%</span>
+                </div>
+
+                <div class="match-row">
+                  <span class="avatar avatar--sm" aria-hidden="true">AL</span>
+                  <span>
+                    <span class="match-row__name">
+                      Ateliê Lume
+                      <span class="verified" aria-label="Perfil verificado">
+                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                      </span>
+                    </span>
+                    <span class="match-row__tags">Estúdio · Brasilândia</span>
+                  </span>
+                  <span class="match-row__score">91%</span>
+                </div>
+
+                <div class="match-row">
+                  <span class="avatar avatar--sm" aria-hidden="true">RC</span>
+                  <span>
+                    <span class="match-row__name">Rafa C.</span>
+                    <span class="match-row__tags">Social media · Cidade Tiradentes</span>
+                  </span>
+                  <span class="match-row__score">87%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="mono center text-dim mt-4">Ilustração da interface — projeto em desenvolvimento</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         FAIXA DE CONFIANÇA
+         ================================================================== -->
+    <section class="trust">
+      <div class="container">
+        <p class="trust__label">Empresas e coletivos que apoiam a rede</p>
+        <div class="trust__logos">
+          <span class="trust__logo">Grupo Aurora</span>
+          <span class="trust__logo">Instituto Ponte</span>
+          <span class="trust__logo">Rede Vértice</span>
+          <span class="trust__logo">Casa Norte</span>
+          <span class="trust__logo">TechSampa</span>
+          <span class="trust__logo">Coletivo Raiz</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Faixa deslizante de categorias -->
+    <div class="marquee" data-marquee aria-hidden="true">
+      <div class="marquee__track">
+        <span class="marquee__item">Design gráfico</span>
+        <span class="marquee__item">Edição de vídeo</span>
+        <span class="marquee__item">Desenvolvimento web</span>
+        <span class="marquee__item">Tráfego pago</span>
+        <span class="marquee__item">Social media</span>
+        <span class="marquee__item">Copywriting</span>
+        <span class="marquee__item">Motion design</span>
+        <span class="marquee__item">Fotografia</span>
+        <span class="marquee__item">SEO</span>
+        <span class="marquee__item">Automação e IA</span>
+      </div>
+    </div>
+
+    <!-- ==================================================================
+         DOIS CAMINHOS
+         ================================================================== -->
+    <section class="section" id="caminhos">
+      <div class="container">
+        <div class="section-head section-head--center" data-reveal>
+          <span class="eyebrow eyebrow--center">Escolha seu lado da ponte</span>
+          <h2>Uma plataforma, dois pontos de partida</h2>
+          <p>Seja para vender seu trabalho ou para encontrar quem faz, o caminho começa aqui.</p>
+        </div>
+
+        <div class="paths">
+
+          <article class="path" data-reveal>
+            <span class="path__tag">Para quem faz</span>
+            <h3 class="path__title">Empreendedor ou prestador local</h3>
+            <p class="path__text">
+              Monte seu perfil, publique seu portfólio e receba briefings compatíveis com o que
+              você faz e com a região onde você está. Sem taxa para se cadastrar, sem
+              intermediário informal e com acesso às trilhas de capacitação da NEXUS Academy.
+            </p>
+
+            <ul class="check-list">
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                Perfil profissional com portfólio e avaliações
+              </li>
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                Propostas e negociação dentro da plataforma
+              </li>
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                Cadastro a partir dos 16 anos, com trilha protegida para menores
+              </li>
+            </ul>
+
+            <div class="path__foot">
+              <a class="btn btn--primary" href="pages/auth/cadastro-prestador.html">
+                Quero oferecer meus serviços
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <a class="btn-link" href="pages/como-funciona.html#prestador">Ver o passo a passo</a>
+            </div>
+          </article>
+
+          <article class="path" data-reveal data-reveal-delay="120">
+            <span class="path__tag">Para quem contrata</span>
+            <h3 class="path__title">Empresa ou contratante</h3>
+            <p class="path__text">
+              Publique um briefing em minutos e receba propostas de profissionais verificados da
+              própria cidade. De MEI a multinacional: o porte não muda o processo, muda só o
+              tamanho do projeto.
+            </p>
+
+            <ul class="check-list">
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                Briefing guiado, sem precisar saber termos técnicos
+              </li>
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                Prestadores com identidade e portfólio conferidos
+              </li>
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                Pagamento retido e liberado só na entrega aprovada
+              </li>
+            </ul>
+
+            <div class="path__foot">
+              <a class="btn btn--secondary" href="pages/auth/cadastro-contratante.html">
+                Quero contratar um serviço
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <a class="btn-link" href="pages/como-funciona.html#contratante">Ver o passo a passo</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         DIFERENCIAIS (BENTO)
+         ================================================================== -->
+    <section class="section section--tight" id="diferenciais">
+      <div class="container">
+        <div class="section-head section-head--split" data-reveal>
+          <div class="stack-sm">
+            <span class="eyebrow">Por que a NEXUS</span>
+            <h2>Feita para quem o mercado costuma deixar de fora</h2>
+          </div>
+          <a class="btn btn--secondary hide-mobile" href="pages/sobre.html">Conheça nossa missão</a>
+        </div>
+
+        <div class="bento">
+
+          <article class="card card--spot span-4" data-reveal>
+            <span class="card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/>
+              </svg>
+            </span>
+            <h3 class="card__title">Cadastro a partir dos 16 anos — com proteção real</h3>
+            <p class="card__text">
+              Somos a única etapa em que um jovem de 16 anos entra no mercado digital com regra
+              clara: consentimento do responsável legal registrado, dados tratados conforme a
+              LGPD (art. 14) e limites de jornada e conteúdo alinhados ao ECA Digital.
+              Proteção não é burocracia — é o que torna a porta segura.
+            </p>
+            <a class="btn-link" href="pages/legal/protecao-menores.html">
+              Ver a política de proteção
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+
+          <article class="card card--spot span-2" data-reveal data-reveal-delay="80">
+            <span class="card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+            </span>
+            <h3 class="card__title">Matching por território</h3>
+            <p class="card__text">
+              A busca considera a zona da cidade. Contratar perto movimenta a economia do
+              próprio bairro.
+            </p>
+          </article>
+
+          <article class="card card--spot span-2" data-reveal>
+            <span class="card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/>
+              </svg>
+            </span>
+            <h3 class="card__title">Capacitação inclusa</h3>
+            <p class="card__text">
+              Trilhas gratuitas de 16 a 29 anos: técnica, precificação, contrato e atendimento.
+            </p>
+          </article>
+
+          <article class="card card--spot span-2" data-reveal data-reveal-delay="80">
+            <span class="card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </span>
+            <h3 class="card__title">Pagamento protegido</h3>
+            <p class="card__text">
+              O valor fica retido pela plataforma e só é liberado quando a entrega é aprovada.
+            </p>
+          </article>
+
+          <article class="card card--spot span-2" data-reveal data-reveal-delay="160">
+            <span class="card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15h6"/>
+              </svg>
+            </span>
+            <h3 class="card__title">Contrato digital</h3>
+            <p class="card__text">
+              Escopo, prazo e valor registrados. Combinado no papel — mesmo que o papel seja
+              digital.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         COMO FUNCIONA
+         ================================================================== -->
+    <section class="section" id="como-funciona">
+      <div class="container">
+        <div class="section-head section-head--center" data-reveal>
+          <span class="eyebrow eyebrow--center">Passo a passo</span>
+          <h2>Como funciona na prática</h2>
+          <p>Escolha o seu perfil para ver o caminho completo.</p>
+        </div>
+
+        <div class="tabs" data-tabs data-reveal>
+          <div class="tabs__nav tabs__nav--center" role="tablist" aria-label="Perfis">
+            <button class="tab" type="button" role="tab" data-tab="prestador"
+                    aria-selected="true" id="aba-prestador" aria-controls="painel-prestador">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2 3 7v10l9 5 9-5V7z"/>
+              </svg>
+              Sou prestador
+            </button>
+            <button class="tab" type="button" role="tab" data-tab="contratante"
+                    aria-selected="false" id="aba-contratante" aria-controls="painel-contratante">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+              </svg>
+              Sou contratante
+            </button>
+          </div>
+
+          <div class="tab-panel is-active" data-tab-panel="prestador" role="tabpanel"
+               id="painel-prestador" aria-labelledby="aba-prestador">
+            <div class="grid-2">
+              <ol class="timeline">
+                <li class="timeline__item">
+                  <span class="timeline__step">Etapa 01</span>
+                  <h3 class="timeline__title">Crie seu perfil</h3>
+                  <p class="timeline__text">
+                    Cadastro gratuito com seus dados, área de atuação e região. Quem tem 16 ou 17
+                    anos passa pela etapa extra de consentimento do responsável legal.
+                  </p>
+                </li>
+                <li class="timeline__item">
+                  <span class="timeline__step">Etapa 02</span>
+                  <h3 class="timeline__title">Monte seu portfólio</h3>
+                  <p class="timeline__text">
+                    Suba trabalhos, links e descrições. É o portfólio que faz o matching subir —
+                    e ele conta mais que diploma.
+                  </p>
+                </li>
+                <li class="timeline__item">
+                  <span class="timeline__step">Etapa 03</span>
+                  <h3 class="timeline__title">Receba briefings compatíveis</h3>
+                  <p class="timeline__text">
+                    A plataforma cruza categoria, região e disponibilidade e mostra só o que
+                    combina com você. Sem disputa de leilão.
+                  </p>
+                </li>
+                <li class="timeline__item">
+                  <span class="timeline__step">Etapa 04</span>
+                  <h3 class="timeline__title">Envie proposta e entregue</h3>
+                  <p class="timeline__text">
+                    Valor, prazo e escopo em uma proposta formal. Aceita, vira contrato digital
+                    com pagamento retido até a aprovação.
+                  </p>
+                </li>
+                <li class="timeline__item">
+                  <span class="timeline__step">Etapa 05</span>
+                  <h3 class="timeline__title">Receba e construa reputação</h3>
+                  <p class="timeline__text">
+                    Pagamento liberado e avaliação registrada no seu perfil. Cada entrega
+                    aumenta sua posição nas próximas buscas.
+                  </p>
+                </li>
+              </ol>
+
+              <div class="stack">
+                <div class="card card--green">
+                  <span class="badge badge--green">Taxa da plataforma</span>
+                  <h3 class="card__title">Você só paga quando recebe</h3>
+                  <p class="card__text">
+                    Cadastro, perfil, portfólio e propostas são gratuitos. A NEXUS retém uma
+                    comissão apenas sobre projetos efetivamente concluídos e pagos.
+                  </p>
+                  <a class="btn btn--primary" href="pages/auth/cadastro-prestador.html">Criar meu perfil</a>
+                </div>
+
+                <div class="alert alert--green">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>
+                  </svg>
+                  <p>
+                    <strong>Tem entre 16 e 29 anos?</strong>
+                    O acesso às trilhas da NEXUS Academy é liberado automaticamente junto com o
+                    seu cadastro, sem custo.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" data-tab-panel="contratante" role="tabpanel"
+               id="painel-contratante" aria-labelledby="aba-contratante">
+            <div class="grid-2">
+              <ol class="timeline">
+                <li class="timeline__item">
+                  <span class="timeline__step">Etapa 01</span>
+                  <h3 class="timeline__title">Descreva o que precisa</h3>
+                  <p class="timeline__text">
+                    Um formulário guiado transforma sua necessidade em briefing técnico. Você não
+                    precisa saber o nome certo do serviço.
+                  </p>
+                </li>
+                <li class="timeline__item">
+                  <span class="timeline__step">Etapa 02</span>
+                  <h3 class="timeline__title">Receba profissionais compatíveis</h3>
+                  <p class="timeline__text">
+                    Em vez de centenas de perfis aleatórios, uma lista curta de prestadores
+                    verificados que atendem à sua categoria e região.
+                  </p>
+                </li>
+                <li class="timeline__item">
+                  <span class="timeline__step">Etapa 03</span>
+                  <h3 class="timeline__title">Compare propostas</h3>
+                  <p class="timeline__text">
+                    Valor, prazo, escopo e reputação lado a lado. Converse pelo chat antes de
+                    fechar qualquer coisa.
+                  </p>
+                </li>
+                <li class="timeline__item">
+                  <span class="timeline__step">Etapa 04</span>
+                  <h3 class="timeline__title">Contrate com segurança</h3>
+                  <p class="timeline__text">
+                    Contrato digital gerado automaticamente e pagamento retido pela plataforma
+                    até a entrega ser aprovada por você.
+                  </p>
+                </li>
+                <li class="timeline__item">
+                  <span class="timeline__step">Etapa 05</span>
+                  <h3 class="timeline__title">Aprove e avalie</h3>
+                  <p class="timeline__text">
+                    Recebeu o que combinou? Aprove a entrega, libere o pagamento e avalie o
+                    profissional para orientar a rede.
+                  </p>
+                </li>
+              </ol>
+
+              <div class="stack">
+                <div class="card card--green">
+                  <span class="badge badge--green">Sem custo de publicação</span>
+                  <h3 class="card__title">Publicar briefing é gratuito</h3>
+                  <p class="card__text">
+                    Você descreve, recebe propostas e escolhe. A taxa da plataforma já está
+                    embutida no valor apresentado — sem surpresa no fim.
+                  </p>
+                  <a class="btn btn--primary" href="pages/auth/cadastro-contratante.html">Publicar um briefing</a>
+                </div>
+
+                <div class="alert alert--info">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>
+                  </svg>
+                  <p>
+                    <strong>Contratou um profissional menor de 18 anos?</strong>
+                    A plataforma aplica automaticamente as regras de proteção do ECA:
+                    escopo limitado, sem trabalho noturno e com o responsável legal ciente.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         CATEGORIAS DE SERVIÇO
+         ================================================================== -->
+    <section class="section" id="servicos">
+      <div class="container">
+        <div class="section-head section-head--split" data-reveal>
+          <div class="stack-sm">
+            <span class="eyebrow">Catálogo</span>
+            <h2>Serviços digitais disponíveis na rede</h2>
+          </div>
+          <a class="btn btn--secondary" href="pages/servicos.html">Ver todas as categorias</a>
+        </div>
+
+        <div class="grid-3">
+
+          <article class="service-card" data-reveal>
+            <div class="service-card__head">
+              <svg class="service-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="14" r="2.5"/><circle cx="6.5" cy="10" r="2.5"/><circle cx="8.5" cy="17.5" r="2.5"/>
+              </svg>
+              <h3 class="service-card__name">Design</h3>
+            </div>
+            <ul class="service-card__list">
+              <li>Identidade visual e logotipo</li>
+              <li>Social media e artes para redes</li>
+              <li>UI/UX de sites e aplicativos</li>
+            </ul>
+            <p class="service-card__count"><strong>42</strong> profissionais ativos</p>
+          </article>
+
+          <article class="service-card" data-reveal data-reveal-delay="60">
+            <div class="service-card__head">
+              <svg class="service-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="5" width="14" height="14" rx="2"/><path d="m16 10 6-3v10l-6-3z"/>
+              </svg>
+              <h3 class="service-card__name">Edição de vídeo</h3>
+            </div>
+            <ul class="service-card__list">
+              <li>Cortes para Reels, TikTok e Shorts</li>
+              <li>Vídeo institucional</li>
+              <li>Motion graphics e vinhetas</li>
+            </ul>
+            <p class="service-card__count"><strong>31</strong> profissionais ativos</p>
+          </article>
+
+          <article class="service-card" data-reveal data-reveal-delay="120">
+            <div class="service-card__head">
+              <svg class="service-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m8 17-5-5 5-5M16 7l5 5-5 5"/>
+              </svg>
+              <h3 class="service-card__name">Desenvolvimento web</h3>
+            </div>
+            <ul class="service-card__list">
+              <li>Sites institucionais e landing pages</li>
+              <li>Lojas virtuais</li>
+              <li>Sistemas sob medida</li>
+            </ul>
+            <p class="service-card__count"><strong>24</strong> profissionais ativos</p>
+          </article>
+
+          <article class="service-card" data-reveal>
+            <div class="service-card__head">
+              <svg class="service-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/>
+              </svg>
+              <h3 class="service-card__name">Marketing e tráfego pago</h3>
+            </div>
+            <ul class="service-card__list">
+              <li>Google Ads e Meta Ads</li>
+              <li>Planejamento de campanha</li>
+              <li>Relatórios de performance</li>
+            </ul>
+            <p class="service-card__count"><strong>28</strong> profissionais ativos</p>
+          </article>
+
+          <article class="service-card" data-reveal data-reveal-delay="60">
+            <div class="service-card__head">
+              <svg class="service-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+              <h3 class="service-card__name">Gestão de redes sociais</h3>
+            </div>
+            <ul class="service-card__list">
+              <li>Planejamento de conteúdo</li>
+              <li>Calendário editorial</li>
+              <li>Atendimento e comunidade</li>
+            </ul>
+            <p class="service-card__count"><strong>36</strong> profissionais ativos</p>
+          </article>
+
+          <article class="service-card" data-reveal data-reveal-delay="120">
+            <div class="service-card__head">
+              <svg class="service-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3v18M5 8h14M7 21h10"/>
+              </svg>
+              <h3 class="service-card__name">Copywriting e conteúdo</h3>
+            </div>
+            <ul class="service-card__list">
+              <li>Textos para anúncios e sites</li>
+              <li>Roteiros para vídeo</li>
+              <li>E-mail marketing</li>
+            </ul>
+            <p class="service-card__count"><strong>19</strong> profissionais ativos</p>
+          </article>
+        </div>
+
+        <p class="mono text-dim mt-6 center">
+          Números ilustrativos — a rede está em fase de formação.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         NEXUS ACADEMY (seção clara)
+         ================================================================== -->
+    <section class="section invert" id="capacitacao">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">NEXUS Academy</span>
+          <h2>Capacitação gratuita para quem tem de 16 a 29 anos</h2>
+          <p>
+            Não basta abrir a porta do mercado: é preciso chegar preparado. As trilhas da
+            Academy cobrem a técnica e também o que ninguém ensina — quanto cobrar, como fazer
+            contrato e como atender um cliente.
+          </p>
+        </div>
+
+        <div class="grid-3">
+
+          <article class="course-card" data-reveal>
+            <div class="course-card__cover">
+              <span class="course-card__level">Iniciante</span>
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="14" r="2.5"/><circle cx="6.5" cy="10" r="2.5"/><circle cx="8.5" cy="17.5" r="2.5"/>
+              </svg>
+            </div>
+            <div class="course-card__body">
+              <h3 class="course-card__title">Design do zero ao primeiro cliente</h3>
+              <p class="course-card__desc">
+                Fundamentos visuais, ferramentas gratuitas e como montar um portfólio que fecha
+                contrato.
+              </p>
+            </div>
+            <div class="course-card__meta">
+              <span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                18 horas
+              </span>
+              <span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5V6a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 1.5Z"/></svg>
+                9 módulos
+              </span>
+            </div>
+          </article>
+
+          <article class="course-card" data-reveal data-reveal-delay="80">
+            <div class="course-card__cover">
+              <span class="course-card__level">Intermediário</span>
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="5" width="14" height="14" rx="2"/><path d="m16 10 6-3v10l-6-3z"/>
+              </svg>
+            </div>
+            <div class="course-card__body">
+              <h3 class="course-card__title">Edição de vídeo para redes sociais</h3>
+              <p class="course-card__desc">
+                Ritmo, corte, legenda e entrega. Do celular ao projeto pago, com foco em
+                conteúdo vertical.
+              </p>
+            </div>
+            <div class="course-card__meta">
+              <span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                22 horas
+              </span>
+              <span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5V6a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 1.5Z"/></svg>
+                12 módulos
+              </span>
+            </div>
+          </article>
+
+          <article class="course-card" data-reveal data-reveal-delay="160">
+            <div class="course-card__cover">
+              <span class="course-card__level">Essencial</span>
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <div class="course-card__body">
+              <h3 class="course-card__title">Precificação, contrato e nota fiscal</h3>
+              <p class="course-card__desc">
+                Quanto cobrar sem se desvalorizar, como formalizar como MEI e o que precisa
+                estar no contrato.
+              </p>
+            </div>
+            <div class="course-card__meta">
+              <span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                10 horas
+              </span>
+              <span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5V6a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 1.5Z"/></svg>
+                6 módulos
+              </span>
+            </div>
+          </article>
+        </div>
+
+        <div class="row mt-8" style="justify-content: space-between;">
+          <p class="text-muted" style="max-width: 46ch; font-size: var(--fs-sm);">
+            As trilhas são liberadas junto com o cadastro de prestador. Certificado de conclusão
+            emitido pela plataforma.
+          </p>
+          <a class="btn btn--dark" href="pages/capacitacao.html">
+            Ver todas as trilhas
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         IDADE MÍNIMA E CONFORMIDADE
+         ================================================================== -->
+    <section class="section has-noise" id="protecao">
+      <div class="container">
+        <div class="age-panel">
+
+          <div class="stack-lg" data-reveal>
+            <div class="stack-sm">
+              <span class="eyebrow">Nosso diferencial</span>
+              <h2>A partir de 16 anos, com as garantias que a lei exige</h2>
+            </div>
+            <p class="lead">
+              A maior parte das plataformas de trabalho digital só aceita maiores de 18 anos.
+              A NEXUS abre aos 16 — e é justamente por isso que o processo de proteção é mais
+              rígido, não mais frouxo.
+            </p>
+
+            <ul class="check-list">
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                <span><strong>Consentimento específico e destacado</strong> do responsável legal para adolescentes de 16 e 17 anos, conforme o art. 14 da LGPD.</span>
+              </li>
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                <span><strong>Melhor interesse do adolescente</strong> como critério de moderação, seguindo o ECA e o marco de proteção digital de crianças e adolescentes.</span>
+              </li>
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                <span><strong>Coleta mínima de dados</strong>: pedimos só o necessário para intermediar o serviço, e o titular pode solicitar exclusão a qualquer momento.</span>
+              </li>
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                <span><strong>Canal direto com o Encarregado de Dados (DPO)</strong> para dúvidas, revogação de consentimento e denúncias.</span>
+              </li>
+            </ul>
+
+            <div class="btn-group">
+              <a class="btn btn--primary" href="pages/legal/protecao-menores.html">Política de proteção a menores</a>
+              <a class="btn btn--secondary" href="pages/legal/privacidade.html">Política de privacidade</a>
+            </div>
+          </div>
+
+          <div class="age-visual" data-reveal data-reveal-delay="120">
+            <span class="age-visual__number">16<sup>+</sup></span>
+            <p class="age-visual__caption">
+              Idade mínima para criar um perfil de prestador na NEXUS.
+            </p>
+
+            <ul class="age-rules">
+              <li>
+                <strong>16–17</strong>
+                <span>Cadastro liberado com consentimento do responsável legal registrado na plataforma.</span>
+              </li>
+              <li>
+                <strong>18–29</strong>
+                <span>Cadastro direto, com acesso integral às trilhas gratuitas da NEXUS Academy.</span>
+              </li>
+              <li>
+                <strong>30+</strong>
+                <span>Cadastro direto como prestador; trilhas disponíveis em modalidade paga.</span>
+              </li>
+              <li>
+                <strong>&lt; 16</strong>
+                <span>Cadastro bloqueado automaticamente pelo sistema, sem retenção dos dados informados.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         NÚMEROS
+         ================================================================== -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Metas do primeiro ciclo · 2026</span>
+          <h2>Para onde estamos indo</h2>
+        </div>
+
+        <div class="stats" data-reveal>
+          <div class="stat">
+            <span class="stat__value"><span data-counter="500">0</span><span class="suffix">+</span></span>
+            <span class="stat__label">prestadores cadastrados nas zonas Sul, Leste e Norte</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value"><span data-counter="1200">0</span><span class="suffix">+</span></span>
+            <span class="stat__label">jovens de 16 a 29 anos capacitados pela Academy</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value">R$ <span data-counter="2">0</span><span class="suffix">mi</span></span>
+            <span class="stat__label">em contratos intermediados e pagos pela plataforma</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value"><span data-counter="96">0</span><span class="suffix">%</span></span>
+            <span class="stat__label">meta de satisfação nas entregas avaliadas</span>
+          </div>
+        </div>
+
+        <p class="mono text-dim mt-6">
+          Projeções de planejamento. A plataforma ainda não está em operação comercial.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         DEPOIMENTOS
+         ================================================================== -->
+    <section class="section" id="depoimentos">
+      <div class="container">
+        <div class="section-head section-head--center" data-reveal>
+          <span class="eyebrow eyebrow--center">Vozes da rede</span>
+          <h2>O que a NEXUS quer destravar</h2>
+        </div>
+
+        <div class="grid-3">
+          <article class="quote-card" data-reveal>
+            <blockquote>
+              Eu editava vídeo pros amigos desde os 15. O problema nunca foi saber fazer — era
+              alguém confiar em contratar. Ter um lugar que aceita a minha idade e ainda me
+              ensina a cobrar muda o jogo.
+            </blockquote>
+            <footer class="quote-card__author">
+              <span class="avatar avatar--sm" aria-hidden="true">TA</span>
+              <span>
+                <strong>Thiago A., 17 anos</strong>
+                <span>Editor de vídeo · Cidade Tiradentes</span>
+              </span>
+            </footer>
+          </article>
+
+          <article class="quote-card" data-reveal data-reveal-delay="80">
+            <blockquote>
+              A gente precisava de identidade visual e não tinha orçamento de agência. Achar um
+              estúdio da própria zona, com preço justo e contrato formal, resolveu duas coisas de
+              uma vez.
+            </blockquote>
+            <footer class="quote-card__author">
+              <span class="avatar avatar--sm" aria-hidden="true">RV</span>
+              <span>
+                <strong>Renata V.</strong>
+                <span>Sócia · Rede Vértice</span>
+              </span>
+            </footer>
+          </article>
+
+          <article class="quote-card" data-reveal data-reveal-delay="160">
+            <blockquote>
+              O que falta na periferia não é talento, é ponte. Quando a ponte existe e é segura,
+              o dinheiro circula no próprio bairro em vez de ir embora.
+            </blockquote>
+            <footer class="quote-card__author">
+              <span class="avatar avatar--sm" aria-hidden="true">IP</span>
+              <span>
+                <strong>Instituto Ponte</strong>
+                <span>Organização parceira · Zona Norte</span>
+              </span>
+            </footer>
+          </article>
+        </div>
+
+        <p class="mono text-dim mt-6 center">
+          Depoimentos ilustrativos, criados para demonstração do layout.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         PERGUNTAS FREQUENTES
+         ================================================================== -->
+    <section class="section" id="faq">
+      <div class="container container--narrow">
+        <div class="section-head section-head--center" data-reveal>
+          <span class="eyebrow eyebrow--center">Dúvidas</span>
+          <h2>Perguntas frequentes</h2>
+        </div>
+
+        <div class="accordion" data-accordion data-reveal>
+
+          <div class="acc-item" data-acc-item>
+            <button class="acc-trigger" type="button" data-acc-trigger aria-expanded="false">
+              Tenho 16 anos. Posso mesmo me cadastrar como prestador?
+              <span class="acc-icon" aria-hidden="true"></span>
+            </button>
+            <div class="acc-panel" data-acc-panel>
+              <div class="acc-panel__inner">
+                Pode. O cadastro exige a data de nascimento e, se você tiver 16 ou 17 anos, o
+                sistema abre automaticamente uma etapa adicional para os dados e o consentimento
+                do seu responsável legal. Sem esse consentimento registrado, o perfil não é
+                ativado. Menores de 16 anos não conseguem concluir o cadastro.
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item" data-acc-item>
+            <button class="acc-trigger" type="button" data-acc-trigger aria-expanded="false">
+              Quanto custa usar a plataforma?
+              <span class="acc-icon" aria-hidden="true"></span>
+            </button>
+            <div class="acc-panel" data-acc-panel>
+              <div class="acc-panel__inner">
+                Criar conta, montar perfil, publicar briefing e enviar propostas é gratuito para
+                os dois lados. A NEXUS cobra uma comissão apenas sobre projetos efetivamente
+                concluídos e pagos pela plataforma. Os percentuais estão detalhados na página
+                <a href="pages/como-funciona.html#taxas">Como funciona</a>.
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item" data-acc-item>
+            <button class="acc-trigger" type="button" data-acc-trigger aria-expanded="false">
+              Preciso ser MEI ou ter CNPJ para prestar serviço?
+              <span class="acc-icon" aria-hidden="true"></span>
+            </button>
+            <div class="acc-panel" data-acc-panel>
+              <div class="acc-panel__inner">
+                Não para começar. Você pode se cadastrar como autônomo. A trilha
+                "Precificação, contrato e nota fiscal" da NEXUS Academy explica quando e como
+                vale a pena formalizar, e a plataforma emite os documentos de cada projeto.
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item" data-acc-item>
+            <button class="acc-trigger" type="button" data-acc-trigger aria-expanded="false">
+              A NEXUS atende só São Paulo?
+              <span class="acc-icon" aria-hidden="true"></span>
+            </button>
+            <div class="acc-panel" data-acc-panel>
+              <div class="acc-panel__inner">
+                Nesta primeira fase, sim: prestadores e contratantes precisam estar na cidade de
+                São Paulo, com atenção especial às regiões periféricas. Como os serviços são
+                digitais, a entrega é remota — mas o vínculo territorial faz parte da proposta do
+                projeto.
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item" data-acc-item>
+            <button class="acc-trigger" type="button" data-acc-trigger aria-expanded="false">
+              Como funciona o pagamento?
+              <span class="acc-icon" aria-hidden="true"></span>
+            </button>
+            <div class="acc-panel" data-acc-panel>
+              <div class="acc-panel__inner">
+                O contratante paga à plataforma no aceite da proposta. O valor fica retido e é
+                repassado ao prestador depois que a entrega é aprovada. Se houver divergência,
+                o caso vai para mediação da equipe NEXUS antes de qualquer liberação.
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item" data-acc-item>
+            <button class="acc-trigger" type="button" data-acc-trigger aria-expanded="false">
+              O que acontece com os meus dados?
+              <span class="acc-icon" aria-hidden="true"></span>
+            </button>
+            <div class="acc-panel" data-acc-panel>
+              <div class="acc-panel__inner">
+                Coletamos o mínimo necessário para intermediar o serviço e nunca vendemos dados a
+                terceiros. Você pode pedir acesso, correção ou exclusão a qualquer momento pelo
+                canal do Encarregado de Dados. Detalhes na
+                <a href="pages/legal/privacidade.html">Política de Privacidade</a>.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="center mt-8 text-muted" style="font-size: var(--fs-sm);">
+          Não achou sua dúvida?
+          <a class="link" href="pages/contato.html">Fale com a nossa equipe</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================
+       RODAPÉ
+       ==================================================================== -->
+  <footer class="footer">
+
+    <!-- Chamada final -->
+    <div class="footer-cta container has-noise">
+      <span class="glow" style="top:-40%; right:-10%; --glow-size:520px; --glow-opacity:.35;" aria-hidden="true"></span>
+      <div class="footer-cta__inner">
+        <div>
+          <h2>Sua próxima entrega começa com um cadastro</h2>
+          <p>
+            Leva menos de cinco minutos. Grátis para prestadores e para contratantes.
+          </p>
+        </div>
+        <div class="btn-group btn-group--stack-mobile">
+          <a class="btn btn--primary btn--lg" href="pages/auth/cadastro-prestador.html">Sou prestador</a>
+          <a class="btn btn--secondary btn--lg" href="pages/auth/cadastro-contratante.html">Quero contratar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- Colunas principais -->
+      <div class="footer__main">
+
+        <div class="footer__brand">
+          <a class="brand" href="index.html" aria-label="NEXUS — página inicial">
+            <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <rect x="1.2" y="1.2" width="29.6" height="29.6" rx="9" stroke="#61d429" stroke-width="2.2"/>
+              <path d="M10 22.5V9.5l12 13v-13" stroke="#61d429" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="brand__text">NEXUS</span>
+          </a>
+
+          <p class="footer__tagline">
+            Plataforma de intermediação entre prestadores de serviços digitais das periferias de
+            São Paulo e empresas contratantes, com capacitação gratuita para jovens de 16 a 29
+            anos.
+          </p>
+
+          <div class="footer__badges">
+            <span class="footer-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+              LGPD
+            </span>
+            <span class="footer-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              ECA Digital
+            </span>
+            <span class="footer-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/></svg>
+              16+
+            </span>
+          </div>
+
+          <div class="social" aria-label="Redes sociais da NEXUS">
+            <a href="#" aria-label="Instagram da NEXUS">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn da NEXUS">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-13h4v1.5A6 6 0 0 1 16 8Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="YouTube da NEXUS">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 12s0-3.5-.5-5a2.6 2.6 0 0 0-1.8-1.8C18 4.7 12 4.7 12 4.7s-6 0-7.7.5A2.6 2.6 0 0 0 2.5 7C2 8.5 2 12 2 12s0 3.5.5 5a2.6 2.6 0 0 0 1.8 1.8c1.7.5 7.7.5 7.7.5s6 0 7.7-.5A2.6 2.6 0 0 0 21.5 17c.5-1.5.5-5 .5-5Z"/><path d="m10 15 5-3-5-3z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="TikTok da NEXUS">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 3v11a4 4 0 1 1-4-4"/><path d="M15 6a5 5 0 0 0 5 5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <nav class="footer__col" aria-label="Plataforma">
+          <h3>Plataforma</h3>
+          <ul>
+            <li><a href="pages/como-funciona.html">Como funciona</a></li>
+            <li><a href="pages/servicos.html">Categorias de serviço</a></li>
+            <li><a href="pages/capacitacao.html">NEXUS Academy <span class="tag-new">Novo</span></a></li>
+            <li><a href="pages/como-funciona.html#taxas">Taxas e pagamentos</a></li>
+            <li><a href="index.html#faq">Perguntas frequentes</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer__col" aria-label="Para prestadores">
+          <h3>Prestadores</h3>
+          <ul>
+            <li><a href="pages/auth/cadastro-prestador.html">Criar perfil</a></li>
+            <li><a href="pages/auth/login.html?perfil=prestador">Entrar</a></li>
+            <li><a href="pages/capacitacao.html">Trilhas gratuitas</a></li>
+            <li><a href="pages/como-funciona.html#prestador">Como receber briefings</a></li>
+            <li><a href="pages/legal/protecao-menores.html">Regras para 16 e 17 anos</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer__col" aria-label="Para contratantes">
+          <h3>Contratantes</h3>
+          <ul>
+            <li><a href="pages/auth/cadastro-contratante.html">Criar conta</a></li>
+            <li><a href="pages/auth/login.html?perfil=contratante">Entrar</a></li>
+            <li><a href="pages/como-funciona.html#contratante">Publicar briefing</a></li>
+            <li><a href="pages/servicos.html">Encontrar profissionais</a></li>
+            <li><a href="pages/contato.html">Falar com vendas</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer__col" aria-label="Institucional">
+          <h3>Institucional</h3>
+          <ul>
+            <li><a href="pages/sobre.html">Sobre a NEXUS</a></li>
+            <li><a href="pages/sobre.html#impacto">Impacto social</a></li>
+            <li><a href="pages/contato.html">Contato e imprensa</a></li>
+            <li><a href="pages/contato.html#parcerias">Seja parceiro</a></li>
+            <li><a href="pages/contato.html#trabalhe">Trabalhe conosco</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Contato -->
+      <div class="footer__contact">
+        <div class="contact-item">
+          <span class="contact-item__icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/>
+            </svg>
+          </span>
+          <div>
+            <p class="contact-item__label">Central de atendimento</p>
+            <a class="contact-item__value" href="tel:+551150000199">+55 (11) 5000-0199</a>
+            <p class="contact-item__note">Seg. a sex., 9h às 18h</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <span class="contact-item__icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/>
+            </svg>
+          </span>
+          <div>
+            <p class="contact-item__label">E-mail geral</p>
+            <a class="contact-item__value" href="mailto:contato@nexusplataforma.com.br">contato@nexusplataforma.com.br</a>
+            <p class="contact-item__note">Resposta em até 2 dias úteis</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <span class="contact-item__icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/>
+            </svg>
+          </span>
+          <div>
+            <p class="contact-item__label">Encarregado de dados (DPO)</p>
+            <a class="contact-item__value" href="mailto:dpo@nexusplataforma.com.br">dpo@nexusplataforma.com.br</a>
+            <p class="contact-item__note">LGPD · Lei 13.709/2018</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <span class="contact-item__icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+          </span>
+          <div>
+            <p class="contact-item__label">Endereço</p>
+            <p class="contact-item__value">Av. das Nações Unidas, 1000 — Sala 21</p>
+            <p class="contact-item__note">Santo Amaro · São Paulo — SP · 04578-000</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer__news">
+        <div>
+          <h3>Receba as vagas e trilhas da semana</h3>
+          <p>
+            Um e-mail por semana com briefings abertos, turmas da Academy e conteúdo sobre
+            precificação. Sem spam — você sai quando quiser.
+          </p>
+        </div>
+
+        <form class="news-form" data-form
+              data-success-title="Inscrição registrada"
+              data-success-text="Este é um formulário demonstrativo: nenhum e-mail foi enviado.">
+          <div class="field news-form__field">
+            <label class="sr-only" for="news-email">Seu melhor e-mail</label>
+            <input class="input" id="news-email" name="email" type="email" required
+                   data-label="O e-mail" placeholder="voce@email.com.br" autocomplete="email">
+          </div>
+          <button class="btn btn--primary" type="submit">
+            Inscrever
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- Base legal -->
+      <div class="footer__legal">
+        <div class="footer__legal-info">
+          <p><strong>NEXUS Plataforma Digital Ltda.</strong> · CNPJ 00.000.000/0001-00</p>
+          <p>&copy; <span data-year>2026</span> NEXUS. Todos os direitos reservados.</p>
+        </div>
+
+        <ul class="footer__legal-links">
+          <li><a href="pages/legal/termos.html">Termos de uso</a></li>
+          <li><a href="pages/legal/privacidade.html">Privacidade</a></li>
+          <li><a href="pages/legal/cookies.html">Cookies</a></li>
+          <li><a href="pages/legal/protecao-menores.html">Proteção a menores</a></li>
+          <li><a href="#" data-cookie-manage>Gerenciar cookies</a></li>
+        </ul>
+
+        <span class="footer__made">
+          <span class="dot" aria-hidden="true"></span>
+          Feito em São Paulo
+        </span>
+      </div>
+
+      <p class="footer__disclaimer">
+        <strong>Aviso:</strong> este site é um protótipo acadêmico/demonstrativo do projeto NEXUS.
+        Os dados de contato, CNPJ, endereço, números de desempenho, empresas parceiras e
+        depoimentos apresentados são fictícios e servem apenas para ilustrar a estrutura de uma
+        plataforma real. Nenhuma informação preenchida nos formulários é enviada, armazenada em
+        servidor ou compartilhada — não há banco de dados conectado nesta fase.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Voltar ao topo -->
+  <button class="to-top" type="button" data-to-top aria-label="Voltar ao topo da página">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <!-- Banner de cookies (LGPD) -->
+  <aside class="cookie-bar" data-cookie-bar role="region" aria-label="Aviso de cookies">
+    <p class="cookie-bar__head">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5Z"/><path d="M8.5 9.5h.01M12 15h.01M15.5 11.5h.01"/>
+      </svg>
+      Este site usa cookies
+    </p>
+    <p>
+      Usamos cookies essenciais para o funcionamento da plataforma e, com a sua autorização,
+      cookies de análise para melhorar a experiência. Você decide — e pode mudar depois.
+      Saiba mais na <a href="pages/legal/cookies.html">Política de Cookies</a>.
+    </p>
+    <div class="cookie-bar__actions">
+      <button class="btn btn--secondary btn--sm" type="button" data-cookie-reject>Só os essenciais</button>
+      <button class="btn btn--primary btn--sm" type="button" data-cookie-accept>Aceitar todos</button>
+    </div>
+  </aside>
+
+  <!-- Scripts: a ordem importa — core.js precisa vir primeiro -->
+  <script src="assets/js/core.js" defer></script>
+  <script src="assets/js/header.js" defer></script>
+  <script src="assets/js/ui.js" defer></script>
+  <script src="assets/js/forms.js" defer></script>
+  <script src="assets/js/lgpd.js" defer></script>
+</body>
+</html>

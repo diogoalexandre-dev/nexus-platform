@@ -1,0 +1,397 @@
+/* ==========================================================================
+   NEXUS — Header
+   Fixo no topo, encolhe ao rolar, com menu de login dividido por perfil.
+   ========================================================================== */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  transition:
+    background-color var(--t-base) var(--ease-out),
+    border-color var(--t-base) var(--ease-out),
+    backdrop-filter var(--t-base) var(--ease-out);
+  border-bottom: 1px solid transparent;
+}
+
+/* Estado aplicado por header.js depois de rolar alguns pixels */
+.header.is-scrolled {
+  background: var(--surface-glass);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border-bottom-color: var(--line-1);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-5);
+  height: 82px;
+  transition: height var(--t-base) var(--ease-out);
+}
+
+.header.is-scrolled .header__inner {
+  height: 68px;
+}
+
+/* --- Barra de progresso da leitura ---------------------------------------- */
+
+.header__progress {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 2px;
+  width: 100%;
+  transform: scaleX(var(--progress, 0));
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--nx-green-700), var(--nx-green), var(--nx-green-300));
+  transition: transform 90ms linear;
+}
+
+/* --- Marca ---------------------------------------------------------------- */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-shrink: 0;
+}
+
+.brand__mark {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  transition: transform var(--t-base) var(--ease-spring);
+}
+
+.brand:hover .brand__mark {
+  transform: rotate(90deg);
+}
+
+.brand__text {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-1);
+}
+
+.brand__tag {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: var(--tracking-caps);
+  color: var(--nx-green);
+  border: 1px solid var(--nx-green-line);
+  border-radius: var(--r-pill);
+  padding: 2px 8px;
+  text-transform: uppercase;
+}
+
+/* --- Navegacao principal --------------------------------------------------- */
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-1);
+  list-style: none;
+}
+
+.nav__link {
+  position: relative;
+  display: block;
+  padding: var(--sp-2) var(--sp-4);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--text-2);
+  border-radius: var(--r-pill);
+  transition:
+    color var(--t-fast) var(--ease-out),
+    background-color var(--t-fast) var(--ease-out);
+}
+
+.nav__link:hover {
+  color: var(--text-1);
+  background: rgba(249, 248, 246, 0.06);
+}
+
+.nav__link[aria-current="page"] {
+  color: var(--nx-green);
+}
+
+.nav__link[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--nx-green);
+  transform: translateX(-50%);
+}
+
+/* --- Acoes a direita ------------------------------------------------------- */
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-shrink: 0;
+}
+
+/* --- Menu suspenso "Entrar" ------------------------------------------------ */
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown__panel {
+  position: absolute;
+  top: calc(100% + 14px);
+  right: 0;
+  z-index: var(--z-dropdown);
+  width: min(92vw, 400px);
+  padding: var(--sp-3);
+  background: rgba(12, 12, 11, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg);
+  display: grid;
+  gap: var(--sp-2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px) scale(0.98);
+  transition:
+    opacity var(--t-base) var(--ease-out),
+    transform var(--t-base) var(--ease-out),
+    visibility var(--t-base);
+}
+
+.dropdown.is-open .dropdown__panel {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.dropdown__label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--text-3);
+  padding: var(--sp-2) var(--sp-3) 0;
+}
+
+.dropdown__item {
+  display: grid;
+  grid-template-columns: 42px 1fr auto;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+  border-radius: var(--r-md);
+  border: 1px solid transparent;
+  transition:
+    background-color var(--t-fast) var(--ease-out),
+    border-color var(--t-fast) var(--ease-out),
+    transform var(--t-fast) var(--ease-out);
+}
+
+.dropdown__item:hover {
+  background: rgba(97, 212, 41, 0.08);
+  border-color: var(--nx-green-line);
+  transform: translateX(3px);
+}
+
+.dropdown__icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--r-sm);
+  background: var(--surface-3);
+  border: 1px solid var(--line-1);
+  color: var(--nx-green);
+}
+
+.dropdown__item:hover .dropdown__icon {
+  background: var(--nx-green);
+  color: var(--nx-black);
+  border-color: var(--nx-green);
+}
+
+.dropdown__title {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  color: var(--text-1);
+}
+
+.dropdown__desc {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+  line-height: 1.4;
+}
+
+.dropdown__arrow {
+  color: var(--text-3);
+  transition: transform var(--t-fast) var(--ease-out);
+}
+
+.dropdown__item:hover .dropdown__arrow {
+  color: var(--nx-green);
+  transform: translateX(4px);
+}
+
+.dropdown__foot {
+  border-top: 1px solid var(--line-1);
+  margin-top: var(--sp-1);
+  padding: var(--sp-3) var(--sp-3) var(--sp-2);
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+  text-align: center;
+}
+
+/* --- Botao hamburguer ------------------------------------------------------ */
+
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-sm);
+  background: rgba(249, 248, 246, 0.04);
+  transition: border-color var(--t-fast) var(--ease-out);
+}
+
+.nav-toggle:hover {
+  border-color: var(--nx-green-line);
+}
+
+.nav-toggle__bars {
+  position: relative;
+  width: 18px;
+  height: 12px;
+}
+
+.nav-toggle__bars span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--text-1);
+  border-radius: 2px;
+  transition: transform var(--t-base) var(--ease-out), opacity var(--t-fast) linear;
+}
+
+.nav-toggle__bars span:nth-child(1) { top: 0; }
+.nav-toggle__bars span:nth-child(2) { top: 5px; }
+.nav-toggle__bars span:nth-child(3) { top: 10px; }
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars span:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars span:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+/* --- Menu mobile ------------------------------------------------------------ */
+
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-header) - 1);
+  padding: 100px var(--gutter) var(--sp-8);
+  background: rgba(6, 6, 6, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-12px);
+  transition:
+    opacity var(--t-base) var(--ease-out),
+    transform var(--t-base) var(--ease-out),
+    visibility var(--t-base);
+}
+
+.mobile-nav.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.mobile-nav__list {
+  list-style: none;
+  display: grid;
+  gap: var(--sp-1);
+  border-bottom: 1px solid var(--line-1);
+  padding-bottom: var(--sp-5);
+  margin-bottom: var(--sp-5);
+}
+
+.mobile-nav__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-4) var(--sp-2);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-1);
+  border-bottom: 1px solid var(--line-1);
+}
+
+.mobile-nav__link span {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  color: var(--text-3);
+}
+
+.mobile-nav__link[aria-current="page"] {
+  color: var(--nx-green);
+}
+
+.mobile-nav__actions {
+  display: grid;
+  gap: var(--sp-3);
+}
+
+.mobile-nav__note {
+  margin-top: var(--sp-6);
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+  text-align: center;
+}
+
+/* Trava a rolagem do corpo enquanto o menu esta aberto */
+body.is-locked {
+  overflow: hidden;
+}
+
+/* --- Ponto de quebra ------------------------------------------------------- */
+
+@media (max-width: 1080px) {
+  .nav { display: none; }
+  .nav-toggle { display: grid; }
+  .header__actions .btn--primary { display: none; }
+}
+
+@media (max-width: 560px) {
+  .header__actions .dropdown { display: none; }
+  .brand__tag { display: none; }
+}
