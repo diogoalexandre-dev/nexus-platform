@@ -85,6 +85,170 @@
   color: var(--nx-green);
 }
 
+/* --- Hero em duas colunas: texto + pessoa ---------------------------------- */
+
+.hero__grid {
+  position: relative;
+  z-index: var(--z-base);
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: center;
+  gap: var(--sp-8);
+}
+
+/* Com a foto ao lado, o texto fica alinhado à esquerda */
+.hero__grid .hero__inner {
+  justify-items: start;
+  text-align: left;
+}
+
+/* Ao lado da figura sobra menos largura: o título usa uma escala menor */
+.hero__grid .hero__title {
+  font-size: clamp(2.5rem, 1.3rem + 3.9vw, 4.6rem);
+  max-width: 15ch;
+}
+.hero__grid .hero__meta { justify-content: flex-start; }
+.hero__grid .hero-suggest { justify-content: flex-start; }
+
+/* --- Figura da pessoa ------------------------------------------------------- */
+
+.hero__figure {
+  position: relative;
+  display: grid;
+  place-items: end center;
+  min-height: 460px;
+}
+
+/* Brilho verde atrás da pessoa */
+.hero__figure::before {
+  content: "";
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  width: min(112%, 520px);
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, var(--nx-green-glow) 0%, transparent 66%);
+  filter: blur(50px);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+/* Anel de contorno, dá profundidade ao recorte */
+.hero__figure::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: min(88%, 400px);
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border: 1px solid var(--line-2);
+  border-radius: 50%;
+  z-index: 0;
+  mask-image: linear-gradient(to top, #000 40%, transparent 90%);
+  -webkit-mask-image: linear-gradient(to top, #000 40%, transparent 90%);
+}
+
+.hero__figure img {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 420px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 28px 44px rgba(0, 0, 0, 0.6));
+  /* Dissolve a base do recorte no fundo, em vez de terminar em corte reto */
+  mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+}
+
+/* --- Cards flutuantes sobre a pessoa ---------------------------------------- */
+
+.float-card {
+  position: absolute;
+  z-index: 3;
+  display: grid;
+  gap: 3px;
+  padding: var(--sp-3) var(--sp-4);
+  background: rgba(12, 12, 11, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-lg);
+  text-align: left;
+  white-space: nowrap;
+  animation: float-y 5.5s var(--ease-in-out) infinite;
+}
+
+.float-card__label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.float-card__value {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-1);
+}
+
+.float-card__value svg { color: var(--nx-green); flex-shrink: 0; }
+
+.float-card--a { top: 8%; left: -4%; animation-delay: 0s; }
+.float-card--b { top: 42%; right: -6%; animation-delay: 1.4s; }
+.float-card--c { bottom: 12%; left: -8%; animation-delay: 2.6s; }
+
+.float-card--green {
+  background: var(--nx-green);
+  border-color: var(--nx-green);
+}
+.float-card--green .float-card__label { color: rgba(0, 0, 0, 0.62); }
+.float-card--green .float-card__value { color: var(--nx-black); }
+.float-card--green .float-card__value svg { color: var(--nx-black); }
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-11px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-card { animation: none; }
+}
+
+/* --- Responsivo -------------------------------------------------------------- */
+
+@media (max-width: 1000px) {
+  .hero__grid { grid-template-columns: 1fr; }
+
+  .hero__grid .hero__inner {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .hero__grid .hero__title { max-width: 16ch; }
+  .hero__grid .hero__meta,
+  .hero__grid .hero-suggest { justify-content: center; }
+
+  .hero__figure { min-height: 380px; margin-top: var(--sp-6); }
+  .hero__figure img { width: min(80%, 330px); }
+
+  .float-card--a { left: 0; }
+  .float-card--b { right: 0; }
+  .float-card--c { left: 0; }
+}
+
+@media (max-width: 560px) {
+  .float-card { padding: var(--sp-2) var(--sp-3); }
+  .float-card--c { display: none; }
+}
+
 /* Busca do hero */
 
 .hero-search {
