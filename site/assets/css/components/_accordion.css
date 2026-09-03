@@ -1,0 +1,99 @@
+/* ==========================================================================
+   NEXUS — Acordeao (perguntas frequentes)
+   Abertura animada controlada por ui.js (define --acc-height).
+   ========================================================================== */
+
+.accordion {
+  display: grid;
+  gap: var(--sp-2);
+}
+
+.acc-item {
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  overflow: hidden;
+  transition: border-color var(--t-base) var(--ease-out), background-color var(--t-base) var(--ease-out);
+}
+
+.acc-item.is-open {
+  border-color: var(--nx-green-line);
+  background: var(--surface-3);
+}
+
+.acc-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  width: 100%;
+  padding: var(--sp-5);
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--text-1);
+  transition: color var(--t-fast) var(--ease-out);
+}
+
+.acc-trigger:hover {
+  color: var(--nx-green);
+}
+
+.acc-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border: 1px solid var(--line-2);
+  border-radius: 50%;
+  transition: all var(--t-base) var(--ease-out);
+}
+
+.acc-item.is-open .acc-icon {
+  background: var(--nx-green);
+  border-color: var(--nx-green);
+  transform: rotate(180deg);
+}
+
+.acc-icon::before,
+.acc-icon::after {
+  content: "";
+  position: absolute;
+  background: currentColor;
+  border-radius: 2px;
+  transition: opacity var(--t-base) var(--ease-out), background-color var(--t-base) var(--ease-out);
+}
+
+.acc-icon::before { width: 11px; height: 1.5px; }
+.acc-icon::after { width: 1.5px; height: 11px; }
+
+.acc-item.is-open .acc-icon::before,
+.acc-item.is-open .acc-icon::after { background: var(--nx-black); }
+.acc-item.is-open .acc-icon::after { opacity: 0; }
+
+.acc-panel {
+  height: 0;
+  overflow: hidden;
+  transition: height var(--t-base) var(--ease-out);
+}
+
+.acc-item.is-open .acc-panel {
+  height: var(--acc-height, auto);
+}
+
+.acc-panel__inner {
+  padding: 0 var(--sp-5) var(--sp-5);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-loose);
+  color: var(--text-2);
+  max-width: 78ch;
+}
+
+.acc-panel__inner a {
+  color: var(--nx-green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

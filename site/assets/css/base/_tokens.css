@@ -1,0 +1,164 @@
+/* ==========================================================================
+   NEXUS — Design Tokens
+   Fonte única de verdade para cores, tipografia, espaçamentos e animações.
+   Alterar uma variável aqui muda o site inteiro.
+   ========================================================================== */
+
+:root {
+  /* --- Cores da marca (identidade oficial NEXUS) --------------------------- */
+  --nx-black: #000000;   /* preto absoluto — fundo principal              */
+  --nx-carbon: #21201e;  /* grafite quente — superfícies elevadas          */
+  --nx-green: #61d429;   /* verde NEXUS — cor de ação e destaque           */
+  --nx-bone: #f9f8f6;    /* off-white — texto e seções invertidas          */
+
+  /* --- Derivadas do verde (estados de interação) --------------------------- */
+  --nx-green-700: #3d8f18;
+  --nx-green-600: #4fb31f;
+  --nx-green-400: #7ce048;
+  --nx-green-300: #a0ec74;
+  --nx-green-glow: rgba(97, 212, 41, 0.35);
+  --nx-green-soft: rgba(97, 212, 41, 0.12);
+  --nx-green-line: rgba(97, 212, 41, 0.28);
+
+  /* --- Superfícies (tema escuro = padrão) ---------------------------------- */
+  --surface-0: var(--nx-black);
+  --surface-1: #0a0a09;
+  --surface-2: #121211;
+  --surface-3: var(--nx-carbon);
+  --surface-4: #2c2b28;
+  --surface-glass: rgba(18, 18, 17, 0.72);
+
+  /* --- Texto --------------------------------------------------------------- */
+  --text-1: var(--nx-bone);
+  --text-2: rgba(249, 248, 246, 0.70);
+  --text-3: rgba(249, 248, 246, 0.48);
+  --text-on-green: var(--nx-black);
+
+  /* --- Bordas e traços ----------------------------------------------------- */
+  --line-1: rgba(249, 248, 246, 0.09);
+  --line-2: rgba(249, 248, 246, 0.16);
+  --line-3: rgba(249, 248, 246, 0.28);
+
+  /* --- Feedback ------------------------------------------------------------ */
+  --danger: #ff5a52;
+  --danger-soft: rgba(255, 90, 82, 0.12);
+  --warning: #ffb340;
+  --warning-soft: rgba(255, 179, 64, 0.12);
+  --info: #4aa8ff;
+  --info-soft: rgba(74, 168, 255, 0.12);
+
+  /* --- Tipografia ---------------------------------------------------------- */
+  --font-display: "Space Grotesk", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Code", ui-monospace, "Courier New", monospace;
+
+  /* Escala fluida — cresce junto com a largura da tela */
+  --fs-display: clamp(2.75rem, 1.6rem + 5.6vw, 6.5rem);
+  --fs-h1: clamp(2.25rem, 1.5rem + 3.4vw, 4.25rem);
+  --fs-h2: clamp(1.75rem, 1.25rem + 2.2vw, 3rem);
+  --fs-h3: clamp(1.35rem, 1.1rem + 1.1vw, 1.9rem);
+  --fs-h4: clamp(1.1rem, 1rem + 0.5vw, 1.35rem);
+  --fs-lead: clamp(1.05rem, 0.98rem + 0.42vw, 1.3rem);
+  --fs-body: 1rem;
+  --fs-sm: 0.9375rem;
+  --fs-xs: 0.8125rem;
+  --fs-micro: 0.6875rem;
+
+  --lh-tight: 1.02;
+  --lh-snug: 1.18;
+  --lh-normal: 1.55;
+  --lh-loose: 1.75;
+
+  --tracking-display: -0.035em;
+  --tracking-tight: -0.02em;
+  --tracking-wide: 0.08em;
+  --tracking-caps: 0.16em;
+
+  /* --- Espaçamento (base 4px) ---------------------------------------------- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 2.5rem;
+  --sp-8: 3rem;
+  --sp-9: 4rem;
+  --sp-10: 5rem;
+  --sp-11: 7rem;
+  --sp-12: 9rem;
+
+  --section-y: clamp(4.5rem, 3rem + 6vw, 8.5rem);
+  --gutter: clamp(1.25rem, 0.75rem + 2vw, 3rem);
+  --container: 1240px;
+  --container-narrow: 780px;
+
+  /* --- Raios --------------------------------------------------------------- */
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+  --r-pill: 999px;
+
+  /* --- Sombras e brilhos ---------------------------------------------------- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 12px 32px -12px rgba(0, 0, 0, 0.75);
+  --shadow-lg: 0 32px 64px -24px rgba(0, 0, 0, 0.85);
+  --shadow-green: 0 12px 40px -12px var(--nx-green-glow);
+  --ring: 0 0 0 3px rgba(97, 212, 41, 0.35);
+
+  /* --- Movimento ------------------------------------------------------------ */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --t-fast: 140ms;
+  --t-base: 260ms;
+  --t-slow: 520ms;
+
+  /* --- Camadas (z-index) ---------------------------------------------------- */
+  --z-base: 1;
+  --z-sticky: 100;
+  --z-header: 200;
+  --z-dropdown: 300;
+  --z-overlay: 400;
+  --z-modal: 500;
+  --z-toast: 600;
+
+  /* --- Texturas -------------------------------------------------------------- */
+  --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+  color-scheme: dark;
+}
+
+/* ==========================================================================
+   Seções invertidas — fundo claro (off-white) sobre a mesma estrutura.
+   Basta adicionar a classe .invert em qualquer <section> ou wrapper.
+   ========================================================================== */
+
+.invert {
+  --surface-0: var(--nx-bone);
+  --surface-1: #ffffff;
+  --surface-2: #f2f1ed;
+  --surface-3: #e7e5df;
+  --surface-4: #dbd8d0;
+  --surface-glass: rgba(255, 255, 255, 0.78);
+
+  --text-1: var(--nx-carbon);
+  --text-2: rgba(33, 32, 30, 0.72);
+  --text-3: rgba(33, 32, 30, 0.52);
+
+  --line-1: rgba(33, 32, 30, 0.10);
+  --line-2: rgba(33, 32, 30, 0.16);
+  --line-3: rgba(33, 32, 30, 0.30);
+
+  --nx-green-soft: rgba(97, 212, 41, 0.16);
+  --nx-green-line: rgba(61, 143, 24, 0.35);
+
+  --shadow-md: 0 12px 32px -14px rgba(33, 32, 30, 0.25);
+  --shadow-lg: 0 32px 64px -28px rgba(33, 32, 30, 0.30);
+
+  color-scheme: light;
+  background-color: var(--surface-0);
+  color: var(--text-1);
+}

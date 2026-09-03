@@ -1,0 +1,128 @@
+/* ==========================================================================
+   NEXUS — Tipografia
+   Space Grotesk (títulos) + Inter (texto) + JetBrains Mono (etiquetas técnicas).
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-1);
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+
+p { text-wrap: pretty; }
+
+strong, b { font-weight: 650; color: var(--text-1); }
+
+/* --- Utilitários de texto ------------------------------------------------- */
+
+.display {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-display);
+}
+
+.lead {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-loose);
+  color: var(--text-2);
+  max-width: 62ch;
+}
+
+.text-muted { color: var(--text-2); }
+.text-dim { color: var(--text-3); }
+.text-green { color: var(--nx-green); }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--nx-green);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.eyebrow--center::after {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+/* Destaque em traço verde sob a palavra */
+.underline-green {
+  position: relative;
+  white-space: nowrap;
+}
+.underline-green::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.06em;
+  height: 0.14em;
+  background: var(--nx-green);
+  opacity: 0.9;
+  border-radius: var(--r-pill);
+}
+
+/* Texto com preenchimento em gradiente */
+.text-gradient {
+  background: linear-gradient(100deg, var(--text-1) 20%, var(--nx-green) 60%, var(--nx-green-300) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Texto vazado (contorno) — usado no hero */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--line-3);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--tracking-wide);
+}
+
+.link {
+  color: var(--nx-green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color var(--t-fast) var(--ease-out);
+}
+.link:hover { color: var(--nx-green-300); }
+
+/* Conteúdo textual longo (páginas legais, artigos) */
+.prose > * + * { margin-top: var(--sp-4); }
+.prose h2 { margin-top: var(--sp-8); font-size: var(--fs-h3); }
+.prose h3 { margin-top: var(--sp-6); font-size: var(--fs-h4); }
+.prose p,
+.prose li { color: var(--text-2); line-height: var(--lh-loose); }
+.prose ul,
+.prose ol { padding-left: var(--sp-5); display: grid; gap: var(--sp-2); }
+.prose li::marker { color: var(--nx-green); }
+.prose a { color: var(--nx-green); text-decoration: underline; text-underline-offset: 3px; }

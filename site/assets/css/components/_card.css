@@ -1,0 +1,645 @@
+/* ==========================================================================
+   NEXUS — Cards, selos, estatisticas e listas
+   O efeito de "holofote" que segue o mouse vem das variaveis --mx / --my,
+   atualizadas por ui.js.
+   ========================================================================== */
+
+/* --- Card base ------------------------------------------------------------- */
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding: var(--sp-6);
+  background: var(--surface-2);
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    border-color var(--t-base) var(--ease-out),
+    transform var(--t-base) var(--ease-out),
+    background-color var(--t-base) var(--ease-out);
+}
+
+.card:hover {
+  border-color: var(--line-2);
+  transform: translateY(-4px);
+}
+
+/* Holofote radial seguindo o cursor */
+.card--spot::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(
+    440px circle at var(--mx, 50%) var(--my, 0%),
+    rgba(97, 212, 41, 0.16),
+    transparent 62%
+  );
+  opacity: 0;
+  transition: opacity var(--t-base) var(--ease-out);
+}
+
+.card--spot:hover::before {
+  opacity: 1;
+}
+
+.card__icon {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: var(--r-md);
+  background: var(--nx-green-soft);
+  border: 1px solid var(--nx-green-line);
+  color: var(--nx-green);
+  transition:
+    background-color var(--t-base) var(--ease-out),
+    color var(--t-base) var(--ease-out),
+    transform var(--t-base) var(--ease-spring);
+}
+
+.card:hover .card__icon {
+  background: var(--nx-green);
+  color: var(--nx-black);
+  transform: rotate(-6deg) scale(1.06);
+}
+
+.card__title {
+  font-size: var(--fs-h4);
+  font-weight: 600;
+}
+
+.card__text {
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+  line-height: var(--lh-loose);
+  flex: 1;
+}
+
+.card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--line-1);
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+}
+
+.card--flat {
+  background: transparent;
+}
+
+.card--glass {
+  background: var(--surface-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.card--green {
+  background: linear-gradient(150deg, rgba(97, 212, 41, 0.14), rgba(97, 212, 41, 0.03));
+  border-color: var(--nx-green-line);
+}
+
+.card--link:hover .card__arrow {
+  transform: translate(3px, -3px);
+  color: var(--nx-green);
+}
+
+.card__arrow {
+  position: absolute;
+  top: var(--sp-5);
+  right: var(--sp-5);
+  color: var(--text-3);
+  transition: transform var(--t-base) var(--ease-out), color var(--t-base) var(--ease-out);
+}
+
+/* --- Card numerado (passos do fluxo) ---------------------------------------- */
+
+.card--step {
+  padding-top: var(--sp-8);
+}
+
+.card__step-number {
+  position: absolute;
+  top: var(--sp-4);
+  right: var(--sp-5);
+  font-family: var(--font-display);
+  font-size: 3.75rem;
+  font-weight: 700;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--line-2);
+  transition: -webkit-text-stroke-color var(--t-base) var(--ease-out);
+  pointer-events: none;
+}
+
+.card--step:hover .card__step-number {
+  -webkit-text-stroke-color: var(--nx-green);
+}
+
+/* --- Card de categoria de servico --------------------------------------------- */
+
+.service-card {
+  position: relative;
+  display: grid;
+  gap: var(--sp-3);
+  padding: var(--sp-5);
+  background: var(--surface-2);
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition:
+    border-color var(--t-base) var(--ease-out),
+    background-color var(--t-base) var(--ease-out),
+    transform var(--t-base) var(--ease-out);
+}
+
+.service-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--nx-green);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform var(--t-base) var(--ease-out);
+}
+
+.service-card:hover {
+  border-color: var(--line-2);
+  background: var(--surface-3);
+  transform: translateY(-3px);
+}
+
+.service-card:hover::after {
+  transform: scaleY(1);
+}
+
+.service-card__head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.service-card__icon {
+  color: var(--nx-green);
+  flex-shrink: 0;
+}
+
+.service-card__name {
+  font-family: var(--font-display);
+  font-size: var(--fs-body);
+  font-weight: 600;
+}
+
+.service-card__list {
+  list-style: none;
+  display: grid;
+  gap: 6px;
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+}
+
+.service-card__list li {
+  display: flex;
+  gap: 8px;
+}
+
+.service-card__list li::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  margin-top: 8px;
+  border-radius: 50%;
+  background: var(--line-3);
+  flex-shrink: 0;
+}
+
+.service-card__count {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: var(--tracking-wide);
+  color: var(--text-3);
+  padding-top: var(--sp-2);
+  border-top: 1px solid var(--line-1);
+}
+
+.service-card__count strong {
+  color: var(--nx-green);
+}
+
+/* --- Card de curso -------------------------------------------------------------- */
+
+.course-card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: var(--sp-4);
+  padding: var(--sp-5);
+  background: var(--surface-1);
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-lg);
+  transition: border-color var(--t-base) var(--ease-out), transform var(--t-base) var(--ease-out);
+}
+
+.course-card:hover {
+  border-color: var(--nx-green-line);
+  transform: translateY(-4px);
+}
+
+.course-card__cover {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--r-md);
+  background:
+    radial-gradient(120% 120% at 20% 10%, rgba(97, 212, 41, 0.28), transparent 55%),
+    var(--surface-3);
+  border: 1px solid var(--line-1);
+  display: grid;
+  place-items: center;
+  color: var(--nx-green);
+  overflow: hidden;
+}
+
+.course-card__cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--line-1) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line-1) 1px, transparent 1px);
+  background-size: 26px 26px;
+  opacity: 0.6;
+}
+
+.course-card__cover svg {
+  position: relative;
+  z-index: 1;
+}
+
+.course-card__level {
+  position: absolute;
+  z-index: 2;
+  top: var(--sp-3);
+  left: var(--sp-3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: var(--r-pill);
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--nx-green);
+  border: 1px solid var(--nx-green-line);
+}
+
+.course-card__body {
+  display: grid;
+  gap: var(--sp-2);
+  align-content: start;
+}
+
+.course-card__title {
+  font-size: var(--fs-h4);
+}
+
+.course-card__desc {
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+}
+
+.course-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--line-1);
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+}
+
+.course-card__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.course-card__meta svg {
+  color: var(--nx-green);
+}
+
+/* --- Card de perfil de prestador --------------------------------------------------- */
+
+.pro-card {
+  display: grid;
+  gap: var(--sp-4);
+  padding: var(--sp-5);
+  background: var(--surface-2);
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-lg);
+  transition: border-color var(--t-base) var(--ease-out), transform var(--t-base) var(--ease-out);
+}
+
+.pro-card:hover {
+  border-color: var(--nx-green-line);
+  transform: translateY(-4px);
+}
+
+.pro-card__head {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: var(--sp-3);
+  align-items: center;
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--r-md);
+  background: linear-gradient(140deg, var(--nx-green), var(--nx-green-700));
+  color: var(--nx-black);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.avatar--sm {
+  width: 40px;
+  height: 40px;
+  font-size: 0.9rem;
+  border-radius: var(--r-sm);
+}
+
+.pro-card__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-body);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pro-card__role {
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+}
+
+.pro-card__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--fs-xs);
+  color: var(--text-2);
+}
+
+.pro-card__rating svg {
+  color: var(--nx-green);
+}
+
+.verified {
+  display: inline-grid;
+  place-items: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--nx-green);
+  color: var(--nx-black);
+  flex-shrink: 0;
+}
+
+/* --- Depoimento --------------------------------------------------------------------- */
+
+.quote-card {
+  display: grid;
+  gap: var(--sp-5);
+  padding: var(--sp-6);
+  background: var(--surface-2);
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-card::before {
+  content: "\201C";
+  position: absolute;
+  top: -18px;
+  right: 18px;
+  font-family: var(--font-display);
+  font-size: 8rem;
+  line-height: 1;
+  color: var(--nx-green);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.quote-card blockquote {
+  font-size: var(--fs-body);
+  line-height: var(--lh-loose);
+  color: var(--text-1);
+}
+
+.quote-card__author {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: var(--sp-3);
+  align-items: center;
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--line-1);
+}
+
+.quote-card__author strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+}
+
+.quote-card__author span {
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+}
+
+/* --- Selos e etiquetas -------------------------------------------------------------- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 13px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  background: var(--surface-2);
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-pill);
+}
+
+.badge--green {
+  color: var(--nx-green);
+  background: var(--nx-green-soft);
+  border-color: var(--nx-green-line);
+}
+
+.badge--live .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--nx-green);
+  box-shadow: 0 0 8px var(--nx-green);
+  animation: pulse-dot 2s var(--ease-in-out) infinite;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: var(--fs-xs);
+  color: var(--text-2);
+  background: var(--surface-3);
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-pill);
+  transition: all var(--t-fast) var(--ease-out);
+}
+
+a.chip:hover,
+.chip--active {
+  color: var(--nx-black);
+  background: var(--nx-green);
+  border-color: var(--nx-green);
+}
+
+/* --- Estatisticas ------------------------------------------------------------------- */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: var(--sp-5);
+}
+
+.stat {
+  display: grid;
+  gap: var(--sp-2);
+  padding: var(--sp-5) var(--sp-4);
+  border-left: 1px solid var(--line-1);
+  padding-left: var(--sp-5);
+}
+
+.stat__value {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 1.5rem + 2.2vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: var(--tracking-display);
+  color: var(--text-1);
+}
+
+.stat__value .suffix {
+  color: var(--nx-green);
+}
+
+.stat__label {
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+  line-height: 1.5;
+}
+
+/* --- Lista com marcador verde -------------------------------------------------------- */
+
+.check-list {
+  list-style: none;
+  display: grid;
+  gap: var(--sp-3);
+}
+
+.check-list li {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: var(--sp-3);
+  align-items: start;
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+  line-height: var(--lh-loose);
+}
+
+.check-list svg {
+  margin-top: 5px;
+  color: var(--nx-green);
+  flex-shrink: 0;
+}
+
+/* --- Faixa deslizante (marquee) ------------------------------------------------------ */
+
+.marquee {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  border-block: 1px solid var(--line-1);
+  padding-block: var(--sp-4);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.marquee__track {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-8);
+  padding-right: var(--sp-8);
+  flex-shrink: 0;
+  min-width: 100%;
+  animation: marquee-scroll 38s linear infinite;
+}
+
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+
+.marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 0.9rem + 0.6vw, 1.4rem);
+  font-weight: 500;
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-3);
+  white-space: nowrap;
+  transition: color var(--t-fast) var(--ease-out);
+}
+
+.marquee__item:hover {
+  color: var(--text-1);
+}
+
+.marquee__item::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--nx-green);
+  opacity: 0.75;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track { animation: none; }
+}
