@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recuperar senha — NEXUS</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="auth">
+    <aside class="auth__aside has-noise">
+      <span class="glow" aria-hidden="true"></span>
+
+      <a class="brand" href="../../index.html" aria-label="NEXUS — página inicial">
+        <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect x="1.2" y="1.2" width="29.6" height="29.6" rx="9" stroke="#61d429" stroke-width="2.2"/>
+          <path d="M10 22.5V9.5l12 13v-13" stroke="#61d429" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand__text">NEXUS</span>
+      </a>
+
+      <div class="auth__pitch">
+        <span class="eyebrow">Acesso à conta</span>
+        <h2>Acontece. Vamos te ajudar a voltar.</h2>
+        <p>Informe o e-mail da sua conta e enviaremos um link para você criar uma nova senha.</p>
+      </div>
+
+      <div class="auth__aside-foot auth__hide-sm">
+        <p class="mono">Protótipo demonstrativo · nenhum e-mail é enviado de verdade</p>
+      </div>
+    </aside>
+
+    <main class="auth__main" id="conteudo">
+      <div class="auth__topbar">
+        <a class="btn-link" href="login.html">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 12H5M11 18l-6-6 6-6"/>
+          </svg>
+          Voltar ao login
+        </a>
+      </div>
+
+      <div class="auth__box">
+        <div class="auth__head">
+          <h1>Recuperar senha</h1>
+          <p>Enviamos um link de redefinição para o e-mail cadastrado.</p>
+        </div>
+
+        <form class="form" data-form
+              data-success-target="#recuperar-ok"
+              data-success-title="Link enviado (simulado)"
+              data-success-text="Nesta fase, nenhum e-mail real é enviado.">
+
+          <div class="field">
+            <label class="field__label" for="rec-email">
+              E-mail da conta <span class="req" aria-hidden="true">*</span>
+            </label>
+            <input class="input" id="rec-email" name="email" type="email" required
+                   data-label="O e-mail" autocomplete="email" placeholder="voce@email.com.br">
+            <p class="field__error"></p>
+          </div>
+
+          <button class="btn btn--primary btn--lg btn--block" type="submit">
+            Enviar link de recuperação
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+
+          <p class="auth__foot">
+            Lembrou a senha? <a href="login.html">Voltar ao login</a><br>
+            Ainda não tem conta? <a href="cadastro.html">Criar cadastro</a>
+          </p>
+        </form>
+
+        <div class="success-panel" id="recuperar-ok">
+          <span class="success-panel__icon" aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <h2>Verifique seu e-mail</h2>
+          <p>
+            Se o endereço informado estiver cadastrado, você receberá um link para criar uma
+            nova senha. Protótipo: nada foi enviado de verdade.
+          </p>
+          <div class="btn-group">
+            <a class="btn btn--primary" href="login.html">Voltar ao login</a>
+          </div>
+        </div>
+
+        <p class="mono text-dim center">Protótipo demonstrativo · sem envio real de e-mail</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/js/core.js" defer></script>
+  <script src="../../assets/js/ui.js" defer></script>
+  <script src="../../assets/js/forms.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar conta de contratante — NEXUS</title>
+  <meta name="description" content="Cadastro de contratantes na NEXUS: publique briefings e contrate prestadores de serviços digitais verificados em São Paulo.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="auth">
+    <aside class="auth__aside has-noise">
+      <span class="glow" aria-hidden="true"></span>
+
+      <a class="brand" href="../../index.html" aria-label="NEXUS — página inicial">
+        <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect x="1.2" y="1.2" width="29.6" height="29.6" rx="9" stroke="#61d429" stroke-width="2.2"/>
+          <path d="M10 22.5V9.5l12 13v-13" stroke="#61d429" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand__text">NEXUS</span>
+      </a>
+
+      <div class="auth__pitch">
+        <span class="eyebrow">Conta de contratante</span>
+        <h2>Publique um briefing e receba propostas verificadas.</h2>
+        <p>
+          De MEI a multinacional, o cadastro é o mesmo. Publicar briefing é gratuito — a taxa
+          da plataforma já vem embutida no valor de cada proposta.
+        </p>
+
+        <ul class="check-list auth__hide-sm">
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Prestadores verificados, perto de você
+          </li>
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Contrato digital e pagamento protegido
+          </li>
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Pagamento liberado só na entrega aprovada
+          </li>
+        </ul>
+      </div>
+
+      <div class="auth__aside-foot auth__hide-sm">
+        <p class="mono">Protótipo demonstrativo · nada é enviado a servidor</p>
+      </div>
+    </aside>
+
+    <main class="auth__main" id="conteudo">
+      <div class="auth__topbar">
+        <a class="btn-link" href="cadastro.html">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 12H5M11 18l-6-6 6-6"/>
+          </svg>
+          Trocar tipo de conta
+        </a>
+        <p class="auth__switch">Já tem conta? <a href="login.html?perfil=contratante">Entrar</a></p>
+      </div>
+
+      <div class="auth__box auth__box--wide">
+        <div class="auth__head">
+          <h1>Criar conta de contratante</h1>
+          <p>Campos marcados com <span class="text-green">*</span> são obrigatórios para ativar a conta.</p>
+        </div>
+
+        <form class="form" data-form
+              data-success-target="#cadastro-ok"
+              data-success-title="Cadastro simulado com sucesso"
+              data-success-text="Confira abaixo os dados que seriam enviados à API.">
+
+          <fieldset class="fieldset">
+            <legend class="fieldset__legend"><span class="num" aria-hidden="true">1</span>Quem está contratando</legend>
+
+            <div class="field">
+              <span class="field__label">Tipo de contratante <span class="req" aria-hidden="true">*</span></span>
+              <div class="choice-grid">
+                <label class="choice">
+                  <input type="radio" name="tipoContratante" value="pessoa" required
+                         data-label="O tipo de contratante">
+                  <span class="choice__check" aria-hidden="true">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                  </span>
+                  <svg class="choice__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/>
+                  </svg>
+                  <span class="choice__title">Pessoa física</span>
+                  <span class="choice__desc">Contratando por conta própria</span>
+                </label>
+
+                <label class="choice">
+                  <input type="radio" name="tipoContratante" value="mei"
+                         data-toggle-target="#bloco-empresa-cont" data-toggle-when="mei,empresa">
+                  <span class="choice__check" aria-hidden="true">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                  </span>
+                  <svg class="choice__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/>
+                  </svg>
+                  <span class="choice__title">MEI</span>
+                  <span class="choice__desc">Microempreendedor individual</span>
+                </label>
+
+                <label class="choice">
+                  <input type="radio" name="tipoContratante" value="empresa"
+                         data-toggle-target="#bloco-empresa-cont" data-toggle-when="mei,empresa">
+                  <span class="choice__check" aria-hidden="true">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                  </span>
+                  <svg class="choice__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5"/>
+                  </svg>
+                  <span class="choice__title">Empresa</span>
+                  <span class="choice__desc">Pequena, média ou grande empresa</span>
+                </label>
+              </div>
+              <p class="field__error"></p>
+            </div>
+
+            <div class="conditional" id="bloco-empresa-cont">
+              <div class="form-grid">
+                <div class="field">
+                  <label class="field__label" for="cont-cnpj">CNPJ <span class="req" aria-hidden="true">*</span></label>
+                  <input class="input" id="cont-cnpj" name="cnpj" type="text" required
+                         inputmode="numeric" data-mask="cnpj" data-validate="cnpj"
+                         data-label="O CNPJ" placeholder="00.000.000/0001-00">
+                  <p class="field__error"></p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="cont-razao">Razão social <span class="req" aria-hidden="true">*</span></label>
+                  <input class="input" id="cont-razao" name="razaoSocial" type="text" required
+                         data-label="A razão social" placeholder="Como consta no cartão CNPJ">
+                  <p class="field__error"></p>
+                </div>
+                <div class="field span-2">
+                  <label class="field__label" for="cont-porte">Porte da empresa <span class="req" aria-hidden="true">*</span></label>
+                  <select class="select" id="cont-porte" name="porte" data-label="O porte da empresa">
+                    <option value="">Selecione…</option>
+                    <option value="autonomo">Autônomo / MEI</option>
+                    <option value="pequena">Pequena empresa</option>
+                    <option value="media">Média empresa</option>
+                    <option value="grande">Grande empresa / multinacional</option>
+                  </select>
+                  <p class="field__error"></p>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend class="fieldset__legend"><span class="num" aria-hidden="true">2</span>Dados de contato</legend>
+
+            <div class="form-grid">
+              <div class="field span-2">
+                <label class="field__label" for="cont-nome">Seu nome completo <span class="req" aria-hidden="true">*</span></label>
+                <input class="input" id="cont-nome" name="nomeCompleto" type="text" required
+                       minlength="6" data-label="O nome completo" autocomplete="name"
+                       placeholder="Quem vai gerenciar a conta">
+                <p class="field__error"></p>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="cont-cargo">Cargo / função <span class="opt">opcional</span></label>
+                <input class="input" id="cont-cargo" name="cargo" type="text"
+                       placeholder="Ex.: Sócia, gerente de marketing">
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="cont-cpf">CPF <span class="req" aria-hidden="true">*</span></label>
+                <input class="input" id="cont-cpf" name="cpf" type="text" required
+                       inputmode="numeric" data-mask="cpf" data-validate="cpf"
+                       data-label="O CPF" placeholder="000.000.000-00">
+                <p class="field__error"></p>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="cont-email">E-mail <span class="req" aria-hidden="true">*</span></label>
+                <input class="input" id="cont-email" name="email" type="email" required
+                       data-label="O e-mail" autocomplete="email" placeholder="voce@empresa.com.br">
+                <p class="field__error"></p>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="cont-telefone">Telefone / WhatsApp <span class="req" aria-hidden="true">*</span></label>
+                <input class="input" id="cont-telefone" name="telefone" type="tel" required
+                       inputmode="tel" data-mask="telefone" data-validate="telefone"
+                       data-label="O telefone" autocomplete="tel" placeholder="(11) 90000-0000">
+                <p class="field__error"></p>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="cont-cep">CEP <span class="req" aria-hidden="true">*</span></label>
+                <input class="input" id="cont-cep" name="cep" type="text" required
+                       inputmode="numeric" data-mask="cep" data-validate="cep"
+                       data-label="O CEP" autocomplete="postal-code" placeholder="00000-000">
+                <p class="field__error"></p>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend class="fieldset__legend"><span class="num" aria-hidden="true">3</span>O que você costuma contratar</legend>
+
+            <div class="field">
+              <span class="field__label">Categorias de interesse <span class="req" aria-hidden="true">*</span></span>
+              <p class="field__hint">Escolha pelo menos uma. Ajuda a mostrar prestadores certos desde o início.</p>
+              <div class="row">
+                <label class="choice-chip"><input type="checkbox" name="categorias" value="design" data-multi>Design gráfico</label>
+                <label class="choice-chip"><input type="checkbox" name="categorias" value="video" data-multi>Edição de vídeo</label>
+                <label class="choice-chip"><input type="checkbox" name="categorias" value="desenvolvimento" data-multi>Desenvolvimento web</label>
+                <label class="choice-chip"><input type="checkbox" name="categorias" value="trafego" data-multi>Tráfego pago</label>
+                <label class="choice-chip"><input type="checkbox" name="categorias" value="social" data-multi>Social media</label>
+                <label class="choice-chip"><input type="checkbox" name="categorias" value="copy" data-multi>Copywriting</label>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend class="fieldset__legend"><span class="num" aria-hidden="true">4</span>Acesso e consentimentos</legend>
+
+            <div class="form-grid">
+              <div class="field">
+                <label class="field__label" for="cont-senha">Criar senha <span class="req" aria-hidden="true">*</span></label>
+                <div class="field__control">
+                  <input class="input" id="cont-senha" name="senha" type="password" required
+                         minlength="8" data-validate="senha" data-label="A senha"
+                         autocomplete="new-password" placeholder="Mínimo de 8 caracteres">
+                  <button class="field__action" type="button" data-toggle-password="cont-senha" aria-label="Mostrar senha">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>
+                    </svg>
+                  </button>
+                </div>
+                <p class="field__error"></p>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="cont-senha-confirma">Confirmar senha <span class="req" aria-hidden="true">*</span></label>
+                <div class="field__control">
+                  <input class="input" id="cont-senha-confirma" name="senhaConfirmacao" type="password" required
+                         data-validate="confirmar-senha" data-match="cont-senha"
+                         data-label="A confirmação da senha" autocomplete="new-password" placeholder="Repita a senha">
+                  <button class="field__action" type="button" data-toggle-password="cont-senha-confirma" aria-label="Mostrar senha">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>
+                    </svg>
+                  </button>
+                </div>
+                <p class="field__error"></p>
+              </div>
+
+              <div class="field span-2">
+                <div class="strength" data-strength-for="cont-senha" data-level="0">
+                  <div class="strength__bars" aria-hidden="true">
+                    <span class="strength__bar"></span><span class="strength__bar"></span>
+                    <span class="strength__bar"></span><span class="strength__bar"></span>
+                  </div>
+                  <p class="strength__label">Força da senha</p>
+                  <ul class="strength__rules">
+                    <li data-rule="length">8 caracteres ou mais</li>
+                    <li data-rule="case">Maiúscula e minúscula</li>
+                    <li data-rule="number">Ao menos um número</li>
+                    <li data-rule="symbol">Um símbolo (recomendado)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="stack">
+              <label class="check check--consent">
+                <input type="checkbox" name="aceiteTermos" required data-label="O aceite dos termos">
+                <span class="check__text">
+                  <strong>Termos de Uso <span class="text-green">*</span></strong>
+                  Li e concordo com os <a href="../legal/termos.html" target="_blank" rel="noopener">Termos de Uso</a>
+                  da plataforma NEXUS.
+                </span>
+              </label>
+
+              <label class="check check--consent">
+                <input type="checkbox" name="aceitePrivacidade" required data-label="O aceite da política de privacidade">
+                <span class="check__text">
+                  <strong>Tratamento de dados pessoais <span class="text-green">*</span></strong>
+                  Autorizo o tratamento dos meus dados para intermediação de serviços, conforme a
+                  <a href="../legal/privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>
+                  e a LGPD.
+                </span>
+              </label>
+
+              <label class="check">
+                <input type="checkbox" name="aceiteComunicacoes">
+                <span>Quero receber por e-mail avisos de novos prestadores e novidades da plataforma. <span class="text-dim">(opcional)</span></span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="form-actions">
+            <span></span>
+            <button class="btn btn--primary btn--lg" type="submit">
+              Criar minha conta
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            </button>
+          </div>
+        </form>
+
+        <div class="success-panel" id="cadastro-ok">
+          <span class="success-panel__icon" aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <h2>Conta criada com sucesso</h2>
+          <p>
+            Protótipo: nada foi enviado a servidor nenhum. Abaixo está o objeto que seria
+            entregue à API de cadastro.
+          </p>
+          <pre class="success-panel__data" data-success-dump></pre>
+          <div class="btn-group">
+            <a class="btn btn--primary" href="../../index.html">Voltar à página inicial</a>
+            <a class="btn btn--secondary" href="cadastro-contratante.html">Preencher de novo</a>
+          </div>
+        </div>
+
+        <p class="mono text-dim center">Protótipo demonstrativo · sem banco de dados conectado</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/js/core.js" defer></script>
+  <script src="../../assets/js/ui.js" defer></script>
+  <script src="../../assets/js/forms.js" defer></script>
+  <script src="../../assets/js/auth.js" defer></script>
+</body>
+</html>
