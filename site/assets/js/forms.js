@@ -224,45 +224,12 @@
       return true;
     }
 
-    // 2. Tamanho mínimo
-    var min = parseInt(input.getAttribute('minlength') || '0', 10);
-    if (min && String(value).length < min) {
-      setError(input, label + ' precisa ter pelo menos ' + min + ' caracteres.');
-      return false;
-    }
+    // Protótipo: aceita qualquer formato nos campos de cadastro (CPF, CNPJ,
+    // e-mail, telefone, CEP, URL, tamanho mínimo, força de senha e
+    // confirmação de senha não bloqueiam mais o envio). A única regra de
+    // negócio mantida é a idade mínima da plataforma, abaixo.
 
-    // 3. Regras específicas
-    if (input.type === 'email' && !validators.email(value)) {
-      setError(input, 'Digite um e-mail válido (exemplo: nome@dominio.com.br).');
-      return false;
-    }
-
-    if (rule === 'cpf' && !validators.cpf(value)) {
-      setError(input, 'CPF inválido. Confira os números digitados.');
-      return false;
-    }
-
-    if (rule === 'cnpj' && !validators.cnpj(value)) {
-      setError(input, 'CNPJ inválido. Confira os números digitados.');
-      return false;
-    }
-
-    if (rule === 'telefone' && !validators.telefone(value)) {
-      setError(input, 'Informe DDD + número (10 ou 11 dígitos).');
-      return false;
-    }
-
-    if (rule === 'cep' && !validators.cep(value)) {
-      setError(input, 'CEP inválido. Use o formato 00000-000.');
-      return false;
-    }
-
-    if (rule === 'url' && !validators.url(value)) {
-      setError(input, 'Endereço inválido. Exemplo: instagram.com/seuperfil');
-      return false;
-    }
-
-    // 4. Data de nascimento com idade mínima
+    // Data de nascimento com idade mínima
     if (rule === 'nascimento') {
       var idade = calcularIdade(value);
       if (idade === null) {
@@ -280,21 +247,6 @@
         setError(input, 'Data de nascimento improvável. Confira o ano.');
         return false;
       }
-    }
-
-    // 5. Confirmação de senha
-    if (rule === 'confirmar-senha') {
-      var reference = document.getElementById(input.getAttribute('data-match'));
-      if (reference && reference.value !== input.value) {
-        setError(input, 'As senhas não coincidem.');
-        return false;
-      }
-    }
-
-    // 6. Senha forte o suficiente
-    if (rule === 'senha' && passwordScore(value) < 3) {
-      setError(input, 'Use ao menos 8 caracteres, com letras maiúsculas, minúsculas e números.');
-      return false;
     }
 
     clearError(input);
