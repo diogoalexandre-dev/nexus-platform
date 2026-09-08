@@ -19,6 +19,8 @@
   position: relative;
   display: grid;
   align-content: space-between;
+  justify-items: center;
+  text-align: center;
   gap: var(--sp-8);
   padding: var(--sp-7) var(--sp-8);
   background: var(--surface-1);
@@ -39,6 +41,7 @@
   display: grid;
   gap: var(--sp-5);
   align-content: center;
+  justify-items: center;
   max-width: 42ch;
 }
 
@@ -54,6 +57,7 @@
 
 .auth__aside-foot {
   display: grid;
+  justify-items: center;
   gap: var(--sp-4);
   font-size: var(--fs-xs);
   color: var(--text-3);
